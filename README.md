@@ -57,3 +57,6 @@ To add or modify text, simply update the `translations` object in the script and
 
 ---
 *&copy; 2026 Festival Of Agroindustry. All Rights Reserved | Made with ❤️*
+timeline foa (iac), pendaftaran (1Juni-2Juli)-perngumpulan paper(4-21 Juli)-pengumuman finalis iac(25 Juli)-Finak iac(1 Agustus)
+NAC , pendaftaran nac(22 Juni-23Juli)-pengumpulan paper nac (25 Juli-8 Agustus)-pengumuman finalis nac(15 Agustus)-final nac(30 Agustus)
+NSAC, pendaftaran nsac (22 Juni-10 Agustus)-roadshow nsac(27 Juli-8 Agustus)-penyisihan nsac (15 Agustus)-finalnsac (30 Agustus)
