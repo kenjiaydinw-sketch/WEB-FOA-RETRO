@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FoA 2026 - Retro Arcade Premium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -44,7 +45,53 @@
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            border-bottom: 2px solid var(--pac-gold);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        nav.nav-hidden {
+            transform: translateY(-100%);
+        }
+
+        /* Pac-Man Dots (Coins) */
+        nav::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: calc(100% - 3rem);
+            height: 6px;
+            background-image: radial-gradient(var(--pac-gold) 45%, transparent 45%);
+            background-size: 20px 6px;
+            background-position: 0 0;
+            background-repeat: repeat-x;
+            animation: moveDots 0.4s linear infinite;
+        }
+
+        /* Pac-Man Character */
+        nav::before {
+            content: '';
+            position: absolute;
+            bottom: -7px;
+            right: 1.5rem;
+            width: 0;
+            height: 0;
+            border-right: 10px solid var(--pac-lemon);
+            border-top: 10px solid var(--pac-lemon);
+            border-left: 10px solid transparent;
+            border-bottom: 10px solid var(--pac-lemon);
+            border-radius: 50%;
+            z-index: 1001;
+            animation: chomp 0.4s infinite;
+        }
+
+        @keyframes chomp {
+            0%, 100% { border-left-color: transparent; }
+            50% { border-left-color: var(--pac-lemon); }
+        }
+
+        @keyframes moveDots {
+            from { background-position: 0 0; }
+            to { background-position: 20px 0; }
         }
 
         .navbar-logo {
@@ -72,18 +119,24 @@
         .nav-btn {
             padding: 0.7rem 1.5rem;
             border: 2px solid var(--pac-gold);
+            border-radius: 25px;
             background-color: transparent;
             color: var(--pac-gold);
             cursor: pointer;
             font-size: 1rem;
             font-weight: 600;
             transition: all 0.3s ease;
+            outline: none;
         }
 
         .nav-btn:hover {
             background-color: var(--pac-gold);
             color: var(--bg-black);
             transform: scale(1.05);
+        }
+
+        .nav-btn:active {
+            transform: scale(0.95);
         }
 
         /* ========== HERO SECTION ========== */
@@ -105,13 +158,15 @@
         }
 
         .hero h1 {
-            font-size: 4rem;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 3.5rem;
+            line-height: 1.5;
             margin-bottom: 1rem;
-            background: linear-gradient(90deg, var(--pac-gold), var(--pac-lemon));
+            background: linear-gradient(to bottom, #FD0000 10%, #F9ED00 90%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            text-shadow: 0 0 20px rgba(255, 213, 0, 0.5);
+            filter: drop-shadow(4px 4px 0px #8B0000);
         }
 
         .hero p {
@@ -159,6 +214,16 @@
         /* ========== FOA SECTION ========== */
         #foa {
             background-color: var(--bg-black);
+        }
+
+        #foa h2 {
+            font-family: 'Press Start 2P', cursive;
+            background: linear-gradient(135deg, #1100FF, #9933FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: #1100FF;
+            text-shadow: none;
         }
 
         .foa-content {
@@ -509,6 +574,14 @@
                 font-size: 2rem;
             }
 
+            #foa h2 {
+                font-family: 'Press Start 2P', cursive;
+                background: linear-gradient(135deg, #1100FF, #9933FF);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+
             .foa-content {
                 grid-template-columns: 1fr;
             }
@@ -585,8 +658,6 @@
     <section class="hero">
         <div class="hero-content">
             <h1 data-i18n="hero_title">Festival Of Agroindustry</h1>
-            <p data-i18n="hero_subtitle">2026 - Festival of Agroindustry</p>
-            <button class="hero-cta" id="aboutBtn2" data-i18n="hero_cta">Explore Now</button>
         </div>
     </section>
 
@@ -931,12 +1002,23 @@
             });
         });
 
-        // ========== SMOOTH SCROLL UNTUK NAVBAR BUTTONS ==========
-        document.getElementById('aboutBtn').addEventListener('click', () => {
-            document.getElementById('foa').scrollIntoView({ behavior: 'smooth' });
+        // ========== HIDE NAVBAR ON SECTION 2 AND BEYOND ==========
+        const navbar = document.querySelector('nav');
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const foaSection = document.getElementById('foa');
+            
+            // Hide navbar when scrolling reaches section 2 (foa) and beyond
+            if (foaSection && scrollTop >= (foaSection.offsetTop - 100)) {
+                navbar.classList.add('nav-hidden');
+            } else {
+                navbar.classList.remove('nav-hidden');
+            }
         });
 
-        document.getElementById('aboutBtn2').addEventListener('click', () => {
+        // ========== SMOOTH SCROLL UNTUK NAVBAR BUTTONS ==========
+        document.getElementById('aboutBtn').addEventListener('click', () => {
             document.getElementById('foa').scrollIntoView({ behavior: 'smooth' });
         });
 
