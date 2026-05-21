@@ -12,13 +12,13 @@
         }
 
         :root {
-            --bg-primary: #000000;
-            --text-primary: #FFFFFF;
-            --accent-gold: #FFD500;
-            --accent-lemon: #F9ED00;
-            --accent-red: #FD0000;
-            --accent-blue: #1100FF;
-            --accent-blue-bell: #3B99E7;
+            --bg-black: #000000;
+            --text-white: #FFFFFF;
+            --pac-gold: #FFD500;
+            --pac-lemon: #F9ED00;
+            --ghost-red: #FD0000;
+            --ghost-blue: #1100FF;
+            --ghost-light-blue: #3B99E7;
         }
 
         html {
@@ -27,8 +27,8 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Courier New', monospace;
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
+            background-color: var(--bg-black);
+            color: var(--text-white);
             line-height: 1.6;
         }
 
@@ -44,7 +44,7 @@
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            border-bottom: 2px solid var(--accent-gold);
+            border-bottom: 2px solid var(--pac-gold);
         }
 
         .navbar-logo {
@@ -71,9 +71,9 @@
 
         .nav-btn {
             padding: 0.7rem 1.5rem;
-            border: 2px solid var(--accent-gold);
+            border: 2px solid var(--pac-gold);
             background-color: transparent;
-            color: var(--accent-gold);
+            color: var(--pac-gold);
             cursor: pointer;
             font-size: 1rem;
             font-weight: 600;
@@ -81,8 +81,8 @@
         }
 
         .nav-btn:hover {
-            background-color: var(--accent-gold);
-            color: var(--bg-primary);
+            background-color: var(--pac-gold);
+            color: var(--bg-black);
             transform: scale(1.05);
         }
 
@@ -107,7 +107,7 @@
         .hero h1 {
             font-size: 4rem;
             margin-bottom: 1rem;
-            background: linear-gradient(90deg, var(--accent-gold), var(--accent-lemon));
+            background: linear-gradient(90deg, var(--pac-gold), var(--pac-lemon));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -116,15 +116,15 @@
 
         .hero p {
             font-size: 1.5rem;
-            color: var(--accent-blue-bell);
+            color: var(--ghost-light-blue);
             margin-bottom: 2rem;
             font-weight: 300;
         }
 
         .hero-cta {
             padding: 1rem 2.5rem;
-            background: linear-gradient(90deg, var(--accent-gold), var(--accent-lemon));
-            color: var(--bg-primary);
+            background: linear-gradient(90deg, var(--pac-gold), var(--pac-lemon));
+            color: var(--bg-black);
             border: none;
             font-size: 1.1rem;
             font-weight: bold;
@@ -149,16 +149,16 @@
             font-size: 3rem;
             margin-bottom: 3rem;
             text-align: center;
-            color: var(--accent-gold);
+            color: var(--pac-gold);
             text-transform: uppercase;
             letter-spacing: 2px;
-            border-bottom: 3px solid var(--accent-red);
+            border-bottom: 3px solid var(--ghost-red);
             padding-bottom: 1rem;
         }
 
         /* ========== FOA SECTION ========== */
         #foa {
-            background-color: var(--bg-primary);
+            background-color: var(--bg-black);
         }
 
         .foa-content {
@@ -170,7 +170,7 @@
 
         .foa-text h3 {
             font-size: 1.8rem;
-            color: var(--accent-lemon);
+            color: var(--pac-lemon);
             margin-bottom: 1.5rem;
         }
 
@@ -186,7 +186,7 @@
             height: 400px;
             background: url('https://via.placeholder.com/500x400?text=FoA+Illustration');
             background-size: cover;
-            border: 3px solid var(--accent-blue);
+            border: 3px solid var(--ghost-blue);
             box-shadow: 0 0 20px rgba(17, 0, 255, 0.3);
         }
 
@@ -204,7 +204,7 @@
         .kategori-card {
             background: linear-gradient(135deg, rgba(255, 213, 0, 0.1), rgba(17, 0, 255, 0.1));
             padding: 2rem;
-            border: 2px solid var(--accent-blue);
+            border: 2px solid var(--ghost-blue);
             border-radius: 8px;
             text-align: center;
             transition: all 0.3s ease;
@@ -213,13 +213,13 @@
 
         .kategori-card:hover {
             transform: translateY(-10px);
-            border-color: var(--accent-gold);
+            border-color: var(--pac-gold);
             box-shadow: 0 0 20px rgba(255, 213, 0, 0.5);
         }
 
         .kategori-card h3 {
             font-size: 1.5rem;
-            color: var(--accent-gold);
+            color: var(--pac-gold);
             margin-bottom: 1rem;
             text-transform: uppercase;
         }
@@ -231,7 +231,7 @@
 
         /* ========== BENEFIT SECTION ========== */
         #benefit {
-            background-color: var(--bg-primary);
+            background-color: var(--bg-black);
         }
 
         .benefit-container {
@@ -252,18 +252,18 @@
             gap: 1rem;
             padding: 1rem;
             background: linear-gradient(90deg, rgba(253, 0, 0, 0.1), rgba(17, 0, 255, 0.1));
-            border-left: 4px solid var(--accent-red);
+            border-left: 4px solid var(--ghost-red);
             border-radius: 4px;
         }
 
         .benefit-icon {
             font-size: 1.8rem;
-            color: var(--accent-lemon);
+            color: var(--pac-lemon);
             min-width: 40px;
         }
 
         .benefit-text h4 {
-            color: var(--accent-gold);
+            color: var(--pac-gold);
             margin-bottom: 0.5rem;
         }
 
@@ -279,11 +279,11 @@
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
-            border: 3px dashed var(--accent-gold);
+            border: 3px dashed var(--pac-gold);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--accent-gold);
+            color: var(--pac-gold);
             font-weight: bold;
             border-radius: 8px;
         }
@@ -309,7 +309,7 @@
             width: 100%;
             height: 300px;
             background: url('https://via.placeholder.com/280x300?text=Winner+1') center/cover;
-            border: 3px solid var(--accent-gold);
+            border: 3px solid var(--pac-gold);
             border-radius: 8px;
             transition: all 0.3s ease;
         }
@@ -327,7 +327,7 @@
             height: 100%;
             background: rgba(0, 0, 0, 0.95);
             padding: 1.5rem;
-            border: 3px solid var(--accent-gold);
+            border: 3px solid var(--pac-gold);
             border-radius: 8px;
             display: flex;
             flex-direction: column;
@@ -340,6 +340,7 @@
             pointer-events: none;
         }
 
+        .hof-card:hover .hof-detail,
         .hof-card.active .hof-detail {
             opacity: 1;
             transform: scale(1);
@@ -347,26 +348,26 @@
         }
 
         .hof-detail h4 {
-            color: var(--accent-gold);
+            color: var(--pac-gold);
             font-size: 1.3rem;
             margin-bottom: 0.5rem;
         }
 
         .hof-detail p {
-            color: var(--accent-lemon);
+            color: var(--pac-lemon);
             font-size: 0.9rem;
             margin-bottom: 0.3rem;
         }
 
         .hof-detail .title {
-            color: var(--accent-blue-bell);
+            color: var(--ghost-light-blue);
             font-weight: bold;
             margin-top: 1rem;
         }
 
         /* ========== TIMELINE SECTION ========== */
         #timeline {
-            background-color: var(--bg-primary);
+            background-color: var(--bg-black);
         }
 
         .timeline-container {
@@ -393,7 +394,7 @@
             text-align: center;
             padding: 1.5rem;
             background: linear-gradient(135deg, rgba(255, 213, 0, 0.1), rgba(59, 153, 231, 0.1));
-            border: 2px solid var(--accent-lemon);
+            border: 2px solid var(--pac-lemon);
             border-radius: 8px;
             transition: all 0.3s ease;
         }
@@ -407,8 +408,8 @@
             display: inline-block;
             width: 50px;
             height: 50px;
-            background: var(--accent-red);
-            color: var(--bg-primary);
+            background: var(--ghost-red);
+            color: var(--bg-black);
             border-radius: 50%;
             line-height: 50px;
             font-weight: bold;
@@ -417,7 +418,7 @@
         }
 
         .timeline-step h4 {
-            color: var(--accent-gold);
+            color: var(--pac-gold);
             font-size: 1.1rem;
             margin-bottom: 0.5rem;
             text-transform: uppercase;
@@ -442,25 +443,25 @@
         .contact-card {
             background: linear-gradient(135deg, rgba(61, 153, 231, 0.1), rgba(255, 213, 0, 0.1));
             padding: 2rem;
-            border: 2px solid var(--accent-blue-bell);
+            border: 2px solid var(--ghost-light-blue);
             border-radius: 8px;
             text-align: center;
             transition: all 0.3s ease;
         }
 
         .contact-card:hover {
-            border-color: var(--accent-gold);
+            border-color: var(--pac-gold);
             box-shadow: 0 0 20px rgba(255, 213, 0, 0.4);
         }
 
         .contact-icon {
             font-size: 2.5rem;
-            color: var(--accent-gold);
+            color: var(--pac-gold);
             margin-bottom: 1rem;
         }
 
         .contact-card h3 {
-            color: var(--accent-lemon);
+            color: var(--pac-lemon);
             margin-bottom: 1rem;
             font-size: 1.3rem;
         }
@@ -474,7 +475,7 @@
         footer {
             text-align: center;
             padding: 2rem;
-            border-top: 2px solid var(--accent-gold);
+            border-top: 2px solid var(--pac-gold);
             background-color: rgba(0, 0, 0, 0.8);
             color: #888;
         }
@@ -717,7 +718,7 @@
             <svg class="timeline-svg" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
                 <!-- Zigzag path -->
                 <path d="M 50 50 Q 150 150 250 100 Q 350 50 450 150 Q 550 250 550 350" 
-                      stroke="#FFD500" stroke-width="3" fill="none" stroke-dasharray="5,5"/>
+                      stroke="var(--ghost-light-blue)" stroke-width="3" fill="none" stroke-dasharray="5,5"/>
                 <!-- Circuit style nodes -->
                 <circle cx="50" cy="50" r="15" fill="#FD0000"/>
                 <circle cx="250" cy="100" r="15" fill="#1100FF"/>
