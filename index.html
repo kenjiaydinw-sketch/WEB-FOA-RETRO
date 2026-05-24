@@ -142,8 +142,7 @@
         /* ========== HERO SECTION ========== */
         .hero {
             height: 100vh;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                        url('https://via.placeholder.com/1920x1080?text=FoA+2026') center/cover no-repeat;
+            background-color: var(--bg-black);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -153,8 +152,55 @@
             overflow: hidden;
         }
 
-        .hero-content {
+        .hero-slideshow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .hero-slideshow .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0;
+            animation: slideFade 24s infinite;
+        }
+
+        .hero-slideshow .slide:nth-child(1) { animation-delay: 0s; }
+        .hero-slideshow .slide:nth-child(2) { animation-delay: 4s; }
+        .hero-slideshow .slide:nth-child(3) { animation-delay: 8s; }
+        .hero-slideshow .slide:nth-child(4) { animation-delay: 12s; }
+        .hero-slideshow .slide:nth-child(5) { animation-delay: 16s; }
+        .hero-slideshow .slide:nth-child(6) { animation-delay: 20s; }
+
+        @keyframes slideFade {
+            0% { opacity: 0; transform: scale(1); }
+            5% { opacity: 1; }
+            16.66% { opacity: 1; }
+            21.66% { opacity: 0; transform: scale(1.05); }
+            100% { opacity: 0; transform: scale(1); }
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
             z-index: 1;
+        }
+
+        .hero-content {
+            z-index: 2;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -294,13 +340,72 @@
             color: #ddd;
         }
 
-        .foa-image {
+        .slider-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: var(--pac-gold);
+            border: 2px solid var(--pac-gold);
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .slider-btn:hover {
+            background: var(--pac-gold);
+            color: var(--bg-black);
+            box-shadow: 0 0 15px rgba(255, 213, 0, 0.5);
+        }
+
+        .prev-btn {
+            left: -20px;
+        }
+
+        .next-btn {
+            right: -20px;
+        }
+
+        .foa-image-slider {
             width: 100%;
             height: 400px;
-            background: url('https://via.placeholder.com/500x400?text=FoA+Illustration');
-            background-size: cover;
             border: 3px solid var(--ghost-blue);
             box-shadow: 0 0 20px rgba(17, 0, 255, 0.3);
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            gap: 15px;
+            padding: 10px;
+            background-color: var(--bg-black);
+            border-radius: 8px;
+            scrollbar-width: none; /* Hide scrollbar for clean look */
+        }
+
+        .foa-image-slider::-webkit-scrollbar {
+            display: none; /* Hide scrollbar in Webkit */
+        }
+
+        .foa-image-slider img {
+            height: 100%;
+            width: 100%;
+            flex: 0 0 100%;
+            scroll-snap-align: center;
+            border-radius: 4px;
+            object-fit: cover;
+            border: 2px solid var(--ghost-blue);
         }
 
         /* ========== KATEGORI SECTION ========== */
@@ -709,6 +814,15 @@
 
     <!-- HERO SECTION -->
     <section class="hero">
+        <div class="hero-slideshow">
+            <div class="slide" style="background-image: url('Foto%20Hero%20Section/1.JPG');"></div>
+            <div class="slide" style="background-image: url('Foto%20Hero%20Section/2.png');"></div>
+            <div class="slide" style="background-image: url('Foto%20Hero%20Section/3.png');"></div>
+            <div class="slide" style="background-image: url('Foto%20Hero%20Section/4.png');"></div>
+            <div class="slide" style="background-image: url('Foto%20Hero%20Section/5.png');"></div>
+            <div class="slide" style="background-image: url('Foto%20Hero%20Section/6.png');"></div>
+        </div>
+        <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1 data-i18n="hero_title">Festival Of Agroindustry</h1>
             <button class="game-start-btn" onclick="document.getElementById('foa').scrollIntoView({behavior: 'smooth'});">
@@ -728,7 +842,17 @@
                 <p data-i18n="foa_p2">Each participant has the opportunity to showcase their skills, compete with the best players, and win prestigious awards.</p>
                 <p data-i18n="foa_p3">Join thousands of gamers from all over the archipelago in the biggest arcade gaming celebration of the year!</p>
             </div>
-            <div class="foa-image"></div>
+            <div class="slider-wrapper">
+                <button class="slider-btn prev-btn" id="prevBtn">❮</button>
+                <div class="foa-image-slider" id="foaSlider">
+                    <img src="Foto%20What%20is%20FoA/1.JPG" alt="FoA 1">
+                    <img src="Foto%20What%20is%20FoA/2.JPG" alt="FoA 2">
+                    <img src="Foto%20What%20is%20FoA/3.JPG" alt="FoA 3">
+                    <img src="Foto%20What%20is%20FoA/5.JPG" alt="FoA 5">
+                    <img src="Foto%20What%20is%20FoA/6.png" alt="FoA 6">
+                </div>
+                <button class="slider-btn next-btn" id="nextBtn">❯</button>
+            </div>
         </div>
     </section>
 
@@ -1102,6 +1226,32 @@
                 document.querySelectorAll('.hof-card').forEach(c => c.classList.remove('active'));
             }
         });
+        // ========== SLIDER NAVIGASI MANUAL ==========
+        const foaSlider = document.getElementById('foaSlider');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        if (foaSlider && prevBtn && nextBtn) {
+            prevBtn.addEventListener('click', () => {
+                const scrollAmount = foaSlider.clientWidth;
+                // If at the beginning, scroll to the very end
+                if (foaSlider.scrollLeft <= 0) {
+                    foaSlider.scrollTo({ left: foaSlider.scrollWidth, behavior: 'smooth' });
+                } else {
+                    foaSlider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                }
+            });
+
+            nextBtn.addEventListener('click', () => {
+                const scrollAmount = foaSlider.clientWidth;
+                // If at the end (allowing 5px margin for rounding errors), scroll back to start
+                if (Math.ceil(foaSlider.scrollLeft + foaSlider.clientWidth) >= foaSlider.scrollWidth - 5) {
+                    foaSlider.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    foaSlider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                }
+            });
+        }
     </script>
 </body>
 </html>
