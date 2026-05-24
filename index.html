@@ -1,725 +1,908 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FoA 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Open+Sans:wght@400&family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Open+Sans:wght@400&family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <!-- NAVBAR -->
     <nav>
-        <div class="navbar-logo">
-            <img src="Logo/Logo%20FoA%20New%207%201.png" alt="FoA Logo" style="height: 50px; width: auto;">
-        </div>
-        <div class="navbar-buttons">
-            <button class="nav-btn" id="aboutBtn" data-i18n="nav_about">About</button>
-            <button class="nav-btn" id="contactBtn" data-i18n="nav_contact">Contact</button>
-        </div>
+      <div class="navbar-logo">
+        <img
+          src="Logo/Logo%20FoA%20New%207%201.png"
+          alt="FoA Logo"
+          style="height: 50px; width: auto"
+        />
+      </div>
+      <div class="navbar-buttons">
+        <button class="nav-btn" id="aboutBtn" data-i18n="nav_about">
+          About
+        </button>
+        <button class="nav-btn" id="contactBtn" data-i18n="nav_contact">
+          Contact
+        </button>
+      </div>
     </nav>
 
     <!-- HERO SECTION -->
     <section class="hero">
-        <div class="hero-slideshow">
-            <div class="slide" style="background-image: url('Foto%20Hero%20Section/1.JPG');"></div>
-            <div class="slide" style="background-image: url('Foto%20Hero%20Section/2.png');"></div>
-            <div class="slide" style="background-image: url('Foto%20Hero%20Section/3.png');"></div>
-            <div class="slide" style="background-image: url('Foto%20Hero%20Section/4.png');"></div>
-            <div class="slide" style="background-image: url('Foto%20Hero%20Section/5.png');"></div>
-            <div class="slide" style="background-image: url('Foto%20Hero%20Section/6.png');"></div>
-        </div>
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1 data-i18n="hero_title">Festival Of Agroindustry</h1>
-            <button class="game-start-btn" onclick="document.getElementById('foa').scrollIntoView({behavior: 'smooth'});">
-                GAME START 
-                <span class="arrow">→</span>
-            </button>
-        </div>
+      <div class="hero-slideshow">
+        <div
+          class="slide"
+          style="background-image: url(&quot;Foto%20Hero%20Section/1.JPG&quot;)"
+        ></div>
+        <div
+          class="slide"
+          style="background-image: url(&quot;Foto%20Hero%20Section/2.png&quot;)"
+        ></div>
+        <div
+          class="slide"
+          style="background-image: url(&quot;Foto%20Hero%20Section/3.png&quot;)"
+        ></div>
+        <div
+          class="slide"
+          style="background-image: url(&quot;Foto%20Hero%20Section/4.png&quot;)"
+        ></div>
+        <div
+          class="slide"
+          style="background-image: url(&quot;Foto%20Hero%20Section/5.png&quot;)"
+        ></div>
+        <div
+          class="slide"
+          style="background-image: url(&quot;Foto%20Hero%20Section/6.png&quot;)"
+        ></div>
+      </div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1 data-i18n="hero_title">Festival Of Agroindustry</h1>
+        <button
+          class="game-start-btn"
+          onclick="
+            document
+              .getElementById('foa')
+              .scrollIntoView({ behavior: 'smooth' })
+          "
+        >
+          GAME START
+          <span class="arrow">→</span>
+        </button>
+      </div>
     </section>
 
     <!-- FOA SECTION -->
     <section id="foa" class="reveal">
-        <h2 data-i18n="foa_heading">What is FoA?</h2>
-        <div class="foa-content">
-            <div class="foa-text">
-                <h3 data-i18n="foa_subheading">Festival Of Agroindustry 2026</h3>
-                <p data-i18n="foa_p1">Festival Of Agroindustry is the largest arcade gaming competition featuring various classic game categories. We provide an unforgettable gaming experience with an authentic retro atmosphere.</p>
-                <p data-i18n="foa_p2">Each participant has the opportunity to showcase their skills, compete with the best players, and win prestigious awards.</p>
-                <p data-i18n="foa_p3">Join thousands of gamers from all over the archipelago in the biggest arcade gaming celebration of the year!</p>
-            </div>
-            <div class="slider-wrapper">
-                <button class="slider-btn prev-btn" id="prevBtn">❮</button>
-                <div class="foa-image-slider" id="foaSlider">
-                    <img src="Foto%20What%20is%20FoA/1.JPG" alt="FoA 1">
-                    <img src="Foto%20What%20is%20FoA/2.JPG" alt="FoA 2">
-                    <img src="Foto%20What%20is%20FoA/3.JPG" alt="FoA 3">
-                    <img src="Foto%20What%20is%20FoA/5.JPG" alt="FoA 5">
-                    <img src="Foto%20What%20is%20FoA/6.png" alt="FoA 6">
-                </div>
-                <button class="slider-btn next-btn" id="nextBtn">❯</button>
-            </div>
+      <h2 data-i18n="foa_heading">What is FoA?</h2>
+      <div class="foa-content">
+        <div class="foa-text">
+          <h3 data-i18n="foa_subheading">Festival Of Agroindustry 2026</h3>
+          <p data-i18n="foa_p1">
+            Festival Of Agroindustry is the largest arcade gaming competition
+            featuring various classic game categories. We provide an
+            unforgettable gaming experience with an authentic retro atmosphere.
+          </p>
+          <p data-i18n="foa_p2">
+            Each participant has the opportunity to showcase their skills,
+            compete with the best players, and win prestigious awards.
+          </p>
+          <p data-i18n="foa_p3">
+            Join thousands of gamers from all over the archipelago in the
+            biggest arcade gaming celebration of the year!
+          </p>
         </div>
+        <div class="slider-wrapper">
+          <button class="slider-btn prev-btn" id="prevBtn">❮</button>
+          <div class="foa-image-slider" id="foaSlider">
+            <img src="Foto%20What%20is%20FoA/1.JPG" alt="FoA 1" />
+            <img src="Foto%20What%20is%20FoA/2.JPG" alt="FoA 2" />
+            <img src="Foto%20What%20is%20FoA/3.JPG" alt="FoA 3" />
+            <img src="Foto%20What%20is%20FoA/5.JPG" alt="FoA 5" />
+            <img src="Foto%20What%20is%20FoA/6.png" alt="FoA 6" />
+          </div>
+          <button class="slider-btn next-btn" id="nextBtn">❯</button>
+        </div>
+      </div>
     </section>
 
     <!-- KATEGORI SECTION -->
     <section id="kategori" class="reveal">
-        <h2 data-i18n="cat_heading">Competition Categories</h2>
-        <div class="kategori-grid">
-            <div class="kategori-card">
-                <h3>NSAC</h3>
-                <p data-i18n="cat_nsac_desc">National SAC Championship - A national-level competition for regional champions with the highest playing standards.</p>
-            </div>
-            <div class="kategori-card">
-                <h3>NAC</h3>
-                <p data-i18n="cat_nac_desc">National Arcade Cup - An open arcade tournament for all skill levels with exciting prizes awaiting the winners.</p>
-            </div>
-            <div class="kategori-card">
-                <h3>IAC</h3>
-                <p data-i18n="cat_iac_desc">International AISAC - An international competition bringing together the best gamers from various countries in Asia.</p>
-            </div>
+      <h2 data-i18n="cat_heading">Competition Categories</h2>
+      <div class="kategori-grid">
+        <div class="kategori-card">
+          <h3>NSAC</h3>
+          <p data-i18n="cat_nsac_desc">
+            National SAC Championship - A national-level competition for
+            regional champions with the highest playing standards.
+          </p>
         </div>
+        <div class="kategori-card">
+          <h3>NAC</h3>
+          <p data-i18n="cat_nac_desc">
+            National Arcade Cup - An open arcade tournament for all skill levels
+            with exciting prizes awaiting the winners.
+          </p>
+        </div>
+        <div class="kategori-card">
+          <h3>IAC</h3>
+          <p data-i18n="cat_iac_desc">
+            International AISAC - An international competition bringing together
+            the best gamers from various countries in Asia.
+          </p>
+        </div>
+      </div>
     </section>
 
     <!-- BENEFIT SECTION -->
     <section id="benefit" class="reveal">
-        <h2 data-i18n="ben_heading">Participant Benefits</h2>
-        <div class="benefit-container">
-            <div class="benefit-list">
-                <div class="benefit-item">
-                    <div class="benefit-icon">🏆</div>
-                    <div class="benefit-text">
-                        <h4 data-i18n="ben_1_title">Prestigious Awards</h4>
-                        <p data-i18n="ben_1_desc">Win official trophies and certificates that are internationally recognized.</p>
-                    </div>
-                </div>
-                <div class="benefit-item">
-                    <div class="benefit-icon">💰</div>
-                    <div class="benefit-text">
-                        <h4 data-i18n="ben_2_title">Massive Prize Pool</h4>
-                        <p data-i18n="ben_2_desc">Total prizes reach billions of rupiahs across all categories.</p>
-                    </div>
-                </div>
-                <div class="benefit-item">
-                    <div class="benefit-icon">🌟</div>
-                    <div class="benefit-text">
-                        <h4 data-i18n="ben_3_title">Media Exposure</h4>
-                        <p data-i18n="ben_3_desc">Coverage from leading national and international media.</p>
-                    </div>
-                </div>
-                <div class="benefit-item">
-                    <div class="benefit-icon">🤝</div>
-                    <div class="benefit-text">
-                        <h4 data-i18n="ben_4_title">Global Networking</h4>
-                        <p data-i18n="ben_4_desc">Meet professional gamers and sponsors from around the world.</p>
-                    </div>
-                </div>
-                <div class="benefit-item">
-                    <div class="benefit-icon">📱</div>
-                    <div class="benefit-text">
-                        <h4 data-i18n="ben_5_title">Digital Platform</h4>
-                        <p data-i18n="ben_5_desc">Access to live streaming and an exclusive online competition platform.</p>
-                    </div>
-                </div>
-                <div class="benefit-item">
-                    <div class="benefit-icon">🎓</div>
-                    <div class="benefit-text">
-                        <h4 data-i18n="ben_6_title">Scholarship Opportunities</h4>
-                        <p data-i18n="ben_6_desc">Gaming scholarship programs and sponsorships for talented athletes.</p>
-                    </div>
-                </div>
+      <h2 data-i18n="ben_heading">Participant Benefits</h2>
+      <div class="benefit-container">
+        <div class="benefit-list">
+          <div class="benefit-item">
+            <div class="benefit-icon">🏆</div>
+            <div class="benefit-text">
+              <h4 data-i18n="ben_1_title">Prestigious Awards</h4>
+              <p data-i18n="ben_1_desc">
+                Win official trophies and certificates that are internationally
+                recognized.
+              </p>
             </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">💰</div>
+            <div class="benefit-text">
+              <h4 data-i18n="ben_2_title">Massive Prize Pool</h4>
+              <p data-i18n="ben_2_desc">
+                Total prizes reach billions of rupiahs across all categories.
+              </p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">🌟</div>
+            <div class="benefit-text">
+              <h4 data-i18n="ben_3_title">Media Exposure</h4>
+              <p data-i18n="ben_3_desc">
+                Coverage from leading national and international media.
+              </p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">🤝</div>
+            <div class="benefit-text">
+              <h4 data-i18n="ben_4_title">Global Networking</h4>
+              <p data-i18n="ben_4_desc">
+                Meet professional gamers and sponsors from around the world.
+              </p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">📱</div>
+            <div class="benefit-text">
+              <h4 data-i18n="ben_5_title">Digital Platform</h4>
+              <p data-i18n="ben_5_desc">
+                Access to live streaming and an exclusive online competition
+                platform.
+              </p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">🎓</div>
+            <div class="benefit-text">
+              <h4 data-i18n="ben_6_title">Scholarship Opportunities</h4>
+              <p data-i18n="ben_6_desc">
+                Gaming scholarship programs and sponsorships for talented
+                athletes.
+              </p>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- HALL OF FAME SECTION -->
     <section id="halloffame" class="reveal">
-        <h2>Hall of Fame 2025</h2>
-        <div class="hof-grid">
-            <div class="hof-card">
-                <img src="https://via.placeholder.com/280x300?text=Winner+1" alt="Winner 1" class="hof-image">
-                <div class="hof-detail">
-                    <h4>Ahmad Rizky</h4>
-                    <p data-i18n="hof_1_age">Age: 24 Years</p>
-                    <p data-i18n="hof_1_origin">Origin: PT Mitra Gaming Indonesia</p>
-                    <p class="title" data-i18n="hof_1_title">🥇 NSAC Champion</p>
-                </div>
-            </div>
-            <div class="hof-card">
-                <img src="https://via.placeholder.com/280x300?text=Winner+2" alt="Winner 2" class="hof-image">
-                <div class="hof-detail">
-                    <h4>Siti Nurhaliza</h4>
-                    <p data-i18n="hof_2_age">Age: 22 Years</p>
-                    <p data-i18n="hof_2_origin">Origin: Gaming Club Bandung</p>
-                    <p class="title" data-i18n="hof_2_title">🥇 NAC Champion</p>
-                </div>
-            </div>
-            <div class="hof-card">
-                <img src="https://via.placeholder.com/280x300?text=Winner+3" alt="Winner 3" class="hof-image">
-                <div class="hof-detail">
-                    <h4>Budi Santoso</h4>
-                    <p data-i18n="hof_3_age">Age: 26 Years</p>
-                    <p data-i18n="hof_3_origin">Origin: Esports Academy Indonesia</p>
-                    <p class="title" data-i18n="hof_3_title">🥇 IAC Champion</p>
-                </div>
-            </div>
+      <h2>Hall of Fame 2025</h2>
+      <div class="hof-grid">
+        <div class="hof-card">
+          <img
+            src="https://via.placeholder.com/280x300?text=Winner+1"
+            alt="Winner 1"
+            class="hof-image"
+          />
+          <div class="hof-detail">
+            <h4>Ahmad Rizky</h4>
+            <p data-i18n="hof_1_age">Age: 24 Years</p>
+            <p data-i18n="hof_1_origin">Origin: PT Mitra Gaming Indonesia</p>
+            <p class="title" data-i18n="hof_1_title">🥇 NSAC Champion</p>
+          </div>
         </div>
+        <div class="hof-card">
+          <img
+            src="https://via.placeholder.com/280x300?text=Winner+2"
+            alt="Winner 2"
+            class="hof-image"
+          />
+          <div class="hof-detail">
+            <h4>Siti Nurhaliza</h4>
+            <p data-i18n="hof_2_age">Age: 22 Years</p>
+            <p data-i18n="hof_2_origin">Origin: Gaming Club Bandung</p>
+            <p class="title" data-i18n="hof_2_title">🥇 NAC Champion</p>
+          </div>
+        </div>
+        <div class="hof-card">
+          <img
+            src="https://via.placeholder.com/280x300?text=Winner+3"
+            alt="Winner 3"
+            class="hof-image"
+          />
+          <div class="hof-detail">
+            <h4>Budi Santoso</h4>
+            <p data-i18n="hof_3_age">Age: 26 Years</p>
+            <p data-i18n="hof_3_origin">Origin: Esports Academy Indonesia</p>
+            <p class="title" data-i18n="hof_3_title">🥇 IAC Champion</p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- TIMELINE SECTION -->
     <section id="timeline" class="reveal">
-        <h2 data-i18n="time_heading">Competition Timeline</h2>
-        <div class="timeline-container">
-            <!-- Timeline Tabs -->
-            <div class="timeline-tabs">
-                <button class="timeline-tab-btn active" data-tab="iac">IAC</button>
-                <button class="timeline-tab-btn" data-tab="nac">NAC</button>
-                <button class="timeline-tab-btn" data-tab="nsac">NSAC</button>
-            </div>
-
-            <!-- IAC Timeline -->
-            <div class="timeline-content active" id="iac-timeline">
-                <div class="vertical-timeline">
-                    <div class="timeline-line">
-                        <div class="timeline-progress-line"></div>
-                        <div class="timeline-checkpoint"></div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-icon">📝</div>
-                        <div class="timeline-box">
-                            <h4>Registrasi</h4>
-                            <p>1 Jun – 2 Jul</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-icon">📢</div>
-                        <div class="timeline-box">
-                            <h4>Pengumuman Abstrak</h4>
-                            <p>4 Jul</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-icon">📄</div>
-                        <div class="timeline-box">
-                            <h4>Pengumpulan Paper</h4>
-                            <p>4 – 21 Jul</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-icon">🏆</div>
-                        <div class="timeline-box">
-                            <h4>Pengumuman Finalis</h4>
-                            <p>25 Jul</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-icon">💬</div>
-                        <div class="timeline-box">
-                            <h4>Technical Meeting</h4>
-                            <p>31 Jul</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-icon">🎉</div>
-                        <div class="timeline-box">
-                            <h4>Final</h4>
-                            <p>1 Agt</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- NAC Timeline -->
-            <div class="timeline-content" id="nac-timeline">
-                <div class="vertical-timeline">
-                    <div class="timeline-line">
-                        <div class="timeline-progress-line"></div>
-                        <div class="timeline-checkpoint"></div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-icon">📝</div>
-                        <div class="timeline-box">
-                            <h4>Registrasi</h4>
-                            <p>22 Jun – 23 Jul</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-icon">📢</div>
-                        <div class="timeline-box">
-                            <h4>Pengumuman Abstrak</h4>
-                            <p>25 Jul</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-icon">📄</div>
-                        <div class="timeline-box">
-                            <h4>Pengumpulan Paper</h4>
-                            <p>25 Jul – 8 Agt</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-icon">🏆</div>
-                        <div class="timeline-box">
-                            <h4>Pengumuman Finalis</h4>
-                            <p>15 Agt</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-icon">💬</div>
-                        <div class="timeline-box">
-                            <h4>Technical Meeting</h4>
-                            <p>28 Agt</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-icon">🎉</div>
-                        <div class="timeline-box">
-                            <h4>Final</h4>
-                            <p>30 Agt</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- NSAC Timeline -->
-            <div class="timeline-content" id="nsac-timeline">
-                <div class="vertical-timeline">
-                    <div class="timeline-line">
-                        <div class="timeline-progress-line"></div>
-                        <div class="timeline-checkpoint"></div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-icon">📝</div>
-                        <div class="timeline-box">
-                            <h4>Registrasi</h4>
-                            <p>2 – 10 Agt</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-icon">💬</div>
-                        <div class="timeline-box">
-                            <h4>Technical Meeting & Tahap Penyisihan</h4>
-                            <p>14 – 15 Agt</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-icon">📢</div>
-                        <div class="timeline-box">
-                            <h4>Pengumuman Semifinalis</h4>
-                            <p>22 Agt</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-icon">🏆</div>
-                        <div class="timeline-box">
-                            <h4>Technical Meeting & Semifinal</h4>
-                            <p>27 – 29 Agt</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-icon">🎉</div>
-                        <div class="timeline-box">
-                            <h4>Final & Closing</h4>
-                            <p>30 Agt</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <h2 data-i18n="time_heading">Competition Timeline</h2>
+      <div class="timeline-container">
+        <!-- Timeline Tabs -->
+        <div class="timeline-tabs">
+          <button class="timeline-tab-btn active" data-tab="iac">IAC</button>
+          <button class="timeline-tab-btn" data-tab="nac">NAC</button>
+          <button class="timeline-tab-btn" data-tab="nsac">NSAC</button>
         </div>
+
+        <!-- IAC Timeline -->
+        <div class="timeline-content active" id="iac-timeline">
+          <div class="vertical-timeline">
+            <div class="timeline-line">
+              <div class="timeline-progress-line"></div>
+              <div class="timeline-checkpoint"></div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-icon">📝</div>
+              <div class="timeline-box">
+                <h4>Registrasi</h4>
+                <p>1 Jun – 2 Jul</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-icon">📢</div>
+              <div class="timeline-box">
+                <h4>Pengumuman Abstrak</h4>
+                <p>4 Jul</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-icon">📄</div>
+              <div class="timeline-box">
+                <h4>Pengumpulan Paper</h4>
+                <p>4 – 21 Jul</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-icon">🏆</div>
+              <div class="timeline-box">
+                <h4>Pengumuman Finalis</h4>
+                <p>25 Jul</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-icon">💬</div>
+              <div class="timeline-box">
+                <h4>Technical Meeting</h4>
+                <p>31 Jul</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-icon">🎉</div>
+              <div class="timeline-box">
+                <h4>Final</h4>
+                <p>1 Agt</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- NAC Timeline -->
+        <div class="timeline-content" id="nac-timeline">
+          <div class="vertical-timeline">
+            <div class="timeline-line">
+              <div class="timeline-progress-line"></div>
+              <div class="timeline-checkpoint"></div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-icon">📝</div>
+              <div class="timeline-box">
+                <h4>Registrasi</h4>
+                <p>22 Jun – 23 Jul</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-icon">📢</div>
+              <div class="timeline-box">
+                <h4>Pengumuman Abstrak</h4>
+                <p>25 Jul</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-icon">📄</div>
+              <div class="timeline-box">
+                <h4>Pengumpulan Paper</h4>
+                <p>25 Jul – 8 Agt</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-icon">🏆</div>
+              <div class="timeline-box">
+                <h4>Pengumuman Finalis</h4>
+                <p>15 Agt</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-icon">💬</div>
+              <div class="timeline-box">
+                <h4>Technical Meeting</h4>
+                <p>28 Agt</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-icon">🎉</div>
+              <div class="timeline-box">
+                <h4>Final</h4>
+                <p>30 Agt</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- NSAC Timeline -->
+        <div class="timeline-content" id="nsac-timeline">
+          <div class="vertical-timeline">
+            <div class="timeline-line">
+              <div class="timeline-progress-line"></div>
+              <div class="timeline-checkpoint"></div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-icon">📝</div>
+              <div class="timeline-box">
+                <h4>Registrasi</h4>
+                <p>2 – 10 Agt</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-icon">💬</div>
+              <div class="timeline-box">
+                <h4>Technical Meeting & Tahap Penyisihan</h4>
+                <p>14 – 15 Agt</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-icon">📢</div>
+              <div class="timeline-box">
+                <h4>Pengumuman Semifinalis</h4>
+                <p>22 Agt</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-icon">🏆</div>
+              <div class="timeline-box">
+                <h4>Technical Meeting & Semifinal</h4>
+                <p>27 – 29 Agt</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-icon">🎉</div>
+              <div class="timeline-box">
+                <h4>Final & Closing</h4>
+                <p>30 Agt</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- CONTACT SECTION -->
     <section id="contact" class="reveal">
-        <h2>Contact Person</h2>
-        <div class="contact-grid">
-            <div class="contact-card">
-                <div class="contact-icon">📞</div>
-                <h3>Phone</h3>
-                <p>+62 812-3456-7890</p>
-                <p>+62 811-9876-5432</p>
-            </div>
-            <div class="contact-card">
-                <div class="contact-icon">📧</div>
-                <h3>Email</h3>
-                <p>info@foa2026.com</p>
-                <p>support@foa2026.com</p>
-            </div>
-            <div class="contact-card">
-                <div class="contact-icon">📍</div>
-                <h3 data-i18n="contact_loc_title">Location</h3>
-                <p>Jakarta Convention Center</p>
-                <p>Jl. Gatot Subroto, Jakarta</p>
-            </div>
+      <h2>Contact</h2>
+      <div class="contact-grid">
+        <!-- LOCATION -->
+        <div class="contact-item">
+          <a
+            href="https://maps.app.goo.gl/cyjDApU2BGsSpjHa6"
+            target="_blank"
+            class="contact-circle"
+          >
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"
+              />
+            </svg>
+          </a>
+          <h3>Location</h3>
+          <div class="contact-box">
+            <p>Jakarta Convention Center</p>
+            <p>Jl. Gatot Subroto, Jakarta</p>
+          </div>
         </div>
+
+        <!-- EMAIL -->
+        <div class="contact-item">
+          <a href="mailto:info@foa2026.com" class="contact-circle">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5z"
+              />
+            </svg>
+          </a>
+          <h3>Email</h3>
+          <div class="contact-box">
+            <p>info@foa2026.com</p>
+            <p>support@foa2026.com</p>
+          </div>
+        </div>
+
+        <!-- PHONE -->
+        <div class="contact-item">
+          <a
+            href="https://wa.me/6281234567890"
+            target="_blank"
+            class="contact-circle"
+          >
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M6.62 10.79a15.053 15.053 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.85 21 3 13.15 3 3a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.57 3.58a1 1 0 0 1-.25 1.01l-2.2 2.2z"
+              />
+            </svg>
+          </a>
+          <h3>Phone</h3>
+          <div class="contact-box">
+            <p>+62 812-3456-7890</p>
+            <p>+62 811-9876-5432</p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- FOOTER -->
     <footer>
-        <div class="footer-social">
-            <h3 data-i18n="footer_social">Follow our social media</h3>
-            <a href="https://www.instagram.com/foaipb" target="_blank" class="social-icon">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.067 3.252.145 4.771 1.691 4.919 4.919.055 1.265.068 1.645.068 4.849 0 3.205-.012 3.584-.067 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.055-1.644.067-4.85.067-3.204 0-3.584-.012-4.849-.067-3.26-.149-4.771-1.699-4.919-4.92-.055-1.265-.067-1.644-.067-4.849 0-3.204.012-3.584.067-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.055 1.645-.067 4.849-.067zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 1.76-6.98 6.276-.058 1.28-.072 1.688-.072 4.947s.014 3.667.072 4.947c.2 4.516 2.622 6.076 6.98 6.276 1.28.058 1.688.072 4.947.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-1.76 6.979-6.276.059-1.28.073-1.687.073-4.947s-.014-3.667-.072-4.947c-.196-4.516-2.624-6.076-6.979-6.276-1.28-.058-1.688-.072-4.948-.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                </svg>
-            </a>
-        </div>
-        <p>&copy; 2026 Festival Of Agroindustry. All Rights Reserved | Made with ❤️</p>
+      <div class="footer-social">
+        <h3 data-i18n="footer_social">Follow our social media</h3>
+        <a
+          href="https://www.instagram.com/foaipb"
+          target="_blank"
+          class="social-icon"
+        >
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M12 2.163c3.204 0 3.584.012 4.85.067 3.252.145 4.771 1.691 4.919 4.919.055 1.265.068 1.645.068 4.849 0 3.205-.012 3.584-.067 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.055-1.644.067-4.85.067-3.204 0-3.584-.012-4.849-.067-3.26-.149-4.771-1.699-4.919-4.92-.055-1.265-.067-1.644-.067-4.849 0-3.204.012-3.584.067-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.055 1.645-.067 4.849-.067zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 1.76-6.98 6.276-.058 1.28-.072 1.688-.072 4.947s.014 3.667.072 4.947c.2 4.516 2.622 6.076 6.98 6.276 1.28.058 1.688.072 4.947.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-1.76 6.979-6.276.059-1.28.073-1.687.073-4.947s-.014-3.667-.072-4.947c-.196-4.516-2.624-6.076-6.979-6.276-1.28-.058-1.688-.072-4.948-.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+            />
+          </svg>
+        </a>
+      </div>
+      <p>
+        &copy; 2026 Festival Of Agroindustry. All Rights Reserved | Made with ❤️
+      </p>
     </footer>
 
     <script>
-        // ========== INTERNATIONALIZATION (i18n) ==========
-        const translations = {
-            en: {
-                nav_about: "About",
-                nav_contact: "Contact",
-                hero_title: "Festival Of Agroindustry",
-                hero_subtitle: "2026 - Festival of Agroindustry",
-                hero_cta: "Explore Now",
-                foa_heading: "What is FoA?",
-                foa_subheading: "Festival Of Agroindustry 2026",
-                foa_p1: "Festival Of Agroindustry is the largest arcade gaming competition featuring various classic game categories. We provide an unforgettable gaming experience with an authentic retro atmosphere.",
-                foa_p2: "Each participant has the opportunity to showcase their skills, compete with the best players, and win prestigious awards.",
-                foa_p3: "Join thousands of gamers from all over the archipelago in the biggest arcade gaming celebration of the year!",
-                cat_heading: "Competition Categories",
-                cat_nsac_desc: "National SAC Championship - A national-level competition for regional champions with the highest playing standards.",
-                cat_nac_desc: "National Arcade Cup - An open arcade tournament for all skill levels with exciting prizes awaiting the winners.",
-                cat_iac_desc: "International AISAC - An international competition bringing together the best gamers from various countries in Asia.",
-                ben_heading: "Participant Benefits",
-                ben_1_title: "Prestigious Awards",
-                ben_1_desc: "Win official trophies and certificates that are internationally recognized.",
-                ben_2_title: "Massive Prize Pool",
-                ben_2_desc: "Total prizes reach billions of rupiahs across all categories.",
-                ben_3_title: "Media Exposure",
-                ben_3_desc: "Coverage from leading national and international media.",
-                ben_4_title: "Global Networking",
-                ben_4_desc: "Meet professional gamers and sponsors from around the world.",
-                ben_5_title: "Digital Platform",
-                ben_5_desc: "Access to live streaming and an exclusive online competition platform.",
-                ben_6_title: "Scholarship Opportunities",
-                ben_6_desc: "Gaming scholarship programs and sponsorships for talented athletes.",
-                hof_1_age: "Age: 24 Years",
-                hof_1_origin: "Origin: PT Mitra Gaming Indonesia",
-                hof_1_title: "🥇 NSAC Champion",
-                hof_2_age: "Age: 22 Years",
-                hof_2_origin: "Origin: Gaming Club Bandung",
-                hof_2_title: "🥇 NAC Champion",
-                hof_3_age: "Age: 26 Years",
-                hof_3_origin: "Origin: Esports Academy Indonesia",
-                hof_3_title: "🥇 IAC Champion",
-                time_heading: "Competition Timeline",
-                time_1_title: "Registration",
-                time_1_desc: "Open participant registration through the online portal.",
-                time_2_title: "Document Screening",
-                time_2_desc: "Verification and screening of participant documents.",
-                time_3_title: "Opening Ceremony",
-                time_3_desc: "Official opening with entertainment and performances.",
-                time_4_title: "Closing",
-                time_4_desc: "Closing with winner announcements and awards.",
-                contact_loc_title: "Location",
-                footer_social: "Follow our social media"
-            },
-            id: {
-                nav_about: "Tentang",
-                nav_contact: "Kontak",
-                hero_title: "Festival Of Agroindustry",
-                hero_subtitle: "2026 - Festival of Agroindustry",
-                hero_cta: "Jelajahi Sekarang",
-                foa_heading: "Apa itu FoA?",
-                foa_subheading: "Festival Of Agroindustry 2026",
-                foa_p1: "Festival Of Agroindustry adalah kompetisi gaming arcade terbesar yang menampilkan berbagai kategori permainan klasik. Kami menghadirkan pengalaman gaming yang tak terlupakan dengan atmosfer retro yang autentik.",
-                foa_p2: "Setiap peserta berkesempatan untuk menunjukkan skill mereka, bersaing dengan pemain terbaik, dan meraih penghargaan bergengsi.",
-                foa_p3: "Bergabunglah dengan ribuan gamer dari seluruh nusantara dalam perayaan gaming arcade terbesar tahun ini!",
-                cat_heading: "Kategori Lomba",
-                cat_nsac_desc: "Nasional SAC Championship - Kompetisi tingkat nasional untuk para juara regional dengan standar bermain tertinggi.",
-                cat_nac_desc: "Nasional Arcade Cup - Turnamen arcade terbuka untuk semua tingkat kemampuan dengan hadiah menarik menanti pemenang.",
-                cat_iac_desc: "International AISAC - Kompetisi internasional yang mempertemukan gamer terbaik dari berbagai negara di Asia.",
-                ben_heading: "Benefit Peserta",
-                ben_1_title: "Penghargaan Bergengsi",
-                ben_1_desc: "Raih trophy dan sertifikat resmi yang diakui secara internasional.",
-                ben_2_title: "Prize Pool Besar",
-                ben_2_desc: "Total hadiah mencapai miliaran rupiah untuk semua kategori.",
-                ben_3_title: "Eksposur Media",
-                ben_3_desc: "Liputan dari media nasional dan internasional terkemuka.",
-                ben_4_title: "Networking Global",
-                ben_4_desc: "Bertemu dengan gamer profesional dan sponsor dari seluruh dunia.",
-                ben_5_title: "Platform Digital",
-                ben_5_desc: "Akses ke streaming langsung dan platform kompetisi online eksklusif.",
-                ben_6_title: "Kesempatan Beasiswa",
-                ben_6_desc: "Program beasiswa gaming dan sponsorship untuk atlet berbakat.",
-                hof_1_age: "Umur: 24 Tahun",
-                hof_1_origin: "Asal: PT Mitra Gaming Indonesia",
-                hof_1_title: "🥇 Juara NSAC",
-                hof_2_age: "Umur: 22 Tahun",
-                hof_2_origin: "Asal: Gaming Club Bandung",
-                hof_2_title: "🥇 Juara NAC",
-                hof_3_age: "Umur: 26 Tahun",
-                hof_3_origin: "Asal: Esports Academy Indonesia",
-                hof_3_title: "🥇 Juara IAC",
-                time_heading: "Alur Waktu Kompetisi",
-                time_1_title: "Registrasi",
-                time_1_desc: "Buka pendaftaran peserta melalui portal online.",
-                time_2_title: "Penyeleksian Berkas",
-                time_2_desc: "Verifikasi dan penyeleksian dokumen peserta.",
-                time_3_title: "Opening Ceremony",
-                time_3_desc: "Pembukaan resmi dengan hiburan dan penampilan.",
-                time_4_title: "Closing",
-                time_4_desc: "Penutupan dengan pengumuman pemenang dan penghargaan.",
-                contact_loc_title: "Lokasi",
-                footer_social: "Ikuti media sosial kami"
-            }
-        };
+      // ========== INTERNATIONALIZATION (i18n) ==========
+      const translations = {
+        en: {
+          nav_about: "About",
+          nav_contact: "Contact",
+          hero_title: "Festival Of Agroindustry",
+          hero_subtitle: "2026 - Festival of Agroindustry",
+          hero_cta: "Explore Now",
+          foa_heading: "What is FoA?",
+          foa_subheading: "Festival Of Agroindustry 2026",
+          foa_p1:
+            "Festival Of Agroindustry is the largest arcade gaming competition featuring various classic game categories. We provide an unforgettable gaming experience with an authentic retro atmosphere.",
+          foa_p2:
+            "Each participant has the opportunity to showcase their skills, compete with the best players, and win prestigious awards.",
+          foa_p3:
+            "Join thousands of gamers from all over the archipelago in the biggest arcade gaming celebration of the year!",
+          cat_heading: "Competition Categories",
+          cat_nsac_desc:
+            "National SAC Championship - A national-level competition for regional champions with the highest playing standards.",
+          cat_nac_desc:
+            "National Arcade Cup - An open arcade tournament for all skill levels with exciting prizes awaiting the winners.",
+          cat_iac_desc:
+            "International AISAC - An international competition bringing together the best gamers from various countries in Asia.",
+          ben_heading: "Participant Benefits",
+          ben_1_title: "Prestigious Awards",
+          ben_1_desc:
+            "Win official trophies and certificates that are internationally recognized.",
+          ben_2_title: "Massive Prize Pool",
+          ben_2_desc:
+            "Total prizes reach billions of rupiahs across all categories.",
+          ben_3_title: "Media Exposure",
+          ben_3_desc: "Coverage from leading national and international media.",
+          ben_4_title: "Global Networking",
+          ben_4_desc:
+            "Meet professional gamers and sponsors from around the world.",
+          ben_5_title: "Digital Platform",
+          ben_5_desc:
+            "Access to live streaming and an exclusive online competition platform.",
+          ben_6_title: "Scholarship Opportunities",
+          ben_6_desc:
+            "Gaming scholarship programs and sponsorships for talented athletes.",
+          hof_1_age: "Age: 24 Years",
+          hof_1_origin: "Origin: PT Mitra Gaming Indonesia",
+          hof_1_title: "🥇 NSAC Champion",
+          hof_2_age: "Age: 22 Years",
+          hof_2_origin: "Origin: Gaming Club Bandung",
+          hof_2_title: "🥇 NAC Champion",
+          hof_3_age: "Age: 26 Years",
+          hof_3_origin: "Origin: Esports Academy Indonesia",
+          hof_3_title: "🥇 IAC Champion",
+          time_heading: "Competition Timeline",
+          time_1_title: "Registration",
+          time_1_desc:
+            "Open participant registration through the online portal.",
+          time_2_title: "Document Screening",
+          time_2_desc: "Verification and screening of participant documents.",
+          time_3_title: "Opening Ceremony",
+          time_3_desc: "Official opening with entertainment and performances.",
+          time_4_title: "Closing",
+          time_4_desc: "Closing with winner announcements and awards.",
+          contact_loc_title: "Location",
+          footer_social: "Follow our social media",
+        },
+        id: {
+          nav_about: "Tentang",
+          nav_contact: "Kontak",
+          hero_title: "Festival Of Agroindustry",
+          hero_subtitle: "2026 - Festival of Agroindustry",
+          hero_cta: "Jelajahi Sekarang",
+          foa_heading: "Apa itu FoA?",
+          foa_subheading: "Festival Of Agroindustry 2026",
+          foa_p1:
+            "Festival Of Agroindustry adalah kompetisi gaming arcade terbesar yang menampilkan berbagai kategori permainan klasik. Kami menghadirkan pengalaman gaming yang tak terlupakan dengan atmosfer retro yang autentik.",
+          foa_p2:
+            "Setiap peserta berkesempatan untuk menunjukkan skill mereka, bersaing dengan pemain terbaik, dan meraih penghargaan bergengsi.",
+          foa_p3:
+            "Bergabunglah dengan ribuan gamer dari seluruh nusantara dalam perayaan gaming arcade terbesar tahun ini!",
+          cat_heading: "Kategori Lomba",
+          cat_nsac_desc:
+            "Nasional SAC Championship - Kompetisi tingkat nasional untuk para juara regional dengan standar bermain tertinggi.",
+          cat_nac_desc:
+            "Nasional Arcade Cup - Turnamen arcade terbuka untuk semua tingkat kemampuan dengan hadiah menarik menanti pemenang.",
+          cat_iac_desc:
+            "International AISAC - Kompetisi internasional yang mempertemukan gamer terbaik dari berbagai negara di Asia.",
+          ben_heading: "Benefit Peserta",
+          ben_1_title: "Penghargaan Bergengsi",
+          ben_1_desc:
+            "Raih trophy dan sertifikat resmi yang diakui secara internasional.",
+          ben_2_title: "Prize Pool Besar",
+          ben_2_desc:
+            "Total hadiah mencapai miliaran rupiah untuk semua kategori.",
+          ben_3_title: "Eksposur Media",
+          ben_3_desc:
+            "Liputan dari media nasional dan internasional terkemuka.",
+          ben_4_title: "Networking Global",
+          ben_4_desc:
+            "Bertemu dengan gamer profesional dan sponsor dari seluruh dunia.",
+          ben_5_title: "Platform Digital",
+          ben_5_desc:
+            "Akses ke streaming langsung dan platform kompetisi online eksklusif.",
+          ben_6_title: "Kesempatan Beasiswa",
+          ben_6_desc:
+            "Program beasiswa gaming dan sponsorship untuk atlet berbakat.",
+          hof_1_age: "Umur: 24 Tahun",
+          hof_1_origin: "Asal: PT Mitra Gaming Indonesia",
+          hof_1_title: "🥇 Juara NSAC",
+          hof_2_age: "Umur: 22 Tahun",
+          hof_2_origin: "Asal: Gaming Club Bandung",
+          hof_2_title: "🥇 Juara NAC",
+          hof_3_age: "Umur: 26 Tahun",
+          hof_3_origin: "Asal: Esports Academy Indonesia",
+          hof_3_title: "🥇 Juara IAC",
+          time_heading: "Alur Waktu Kompetisi",
+          time_1_title: "Registrasi",
+          time_1_desc: "Buka pendaftaran peserta melalui portal online.",
+          time_2_title: "Penyeleksian Berkas",
+          time_2_desc: "Verifikasi dan penyeleksian dokumen peserta.",
+          time_3_title: "Opening Ceremony",
+          time_3_desc: "Pembukaan resmi dengan hiburan dan penampilan.",
+          time_4_title: "Closing",
+          time_4_desc: "Penutupan dengan pengumuman pemenang dan penghargaan.",
+          contact_loc_title: "Lokasi",
+          footer_social: "Ikuti media sosial kami",
+        },
+      };
 
-        function setLanguage() {
-            // Deteksi bahasa browser
-            const userLang = navigator.language || navigator.userLanguage;
-            // Gunakan 'id' (Indonesia) jika bahasa berawalan 'id', selain itu gunakan 'en'
-            const langCode = userLang.startsWith('id') ? 'id' : 'en';
-            
-            document.documentElement.lang = langCode;
+      function setLanguage() {
+        // Deteksi bahasa browser
+        const userLang = navigator.language || navigator.userLanguage;
+        // Gunakan 'id' (Indonesia) jika bahasa berawalan 'id', selain itu gunakan 'en'
+        const langCode = userLang.startsWith("id") ? "id" : "en";
 
-            // Ganti semua teks elemen yang memiliki tag data-i18n
-            document.querySelectorAll('[data-i18n]').forEach(element => {
-                const key = element.getAttribute('data-i18n');
-                if (translations[langCode][key]) {
-                    element.textContent = translations[langCode][key];
-                }
-            });
+        document.documentElement.lang = langCode;
+
+        // Ganti semua teks elemen yang memiliki tag data-i18n
+        document.querySelectorAll("[data-i18n]").forEach((element) => {
+          const key = element.getAttribute("data-i18n");
+          if (translations[langCode][key]) {
+            element.textContent = translations[langCode][key];
+          }
+        });
+      }
+
+      // ========== INTERSECTION OBSERVER UNTUK SCROLL REVEAL ==========
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("revealed");
+          } else {
+            // Hilangkan class revealed saat elemen keluar layar agar animasi bisa berulang
+            entry.target.classList.remove("revealed");
+          }
+        });
+      }, observerOptions);
+
+      // ========== DOM CONTENT LOADED ==========
+      document.addEventListener("DOMContentLoaded", () => {
+        // Setup bahasa saat halaman dimuat
+        setLanguage();
+
+        // Add reveal-staggered class ke card elements
+        document
+          .querySelectorAll(
+            ".kategori-card, .benefit-item, .hof-card, .contact-card",
+          )
+          .forEach((el) => {
+            el.classList.add("reveal-staggered");
+          });
+
+        // Observe semua element dengan class reveal atau reveal-staggered
+        document
+          .querySelectorAll(".reveal, .reveal-staggered")
+          .forEach((el) => {
+            revealObserver.observe(el);
+          });
+      });
+
+      // ========== HIDE NAVBAR ON SECTION 2 AND BEYOND ==========
+      const navbar = document.querySelector("nav");
+
+      window.addEventListener("scroll", function () {
+        let scrollTop =
+          window.pageYOffset || document.documentElement.scrollTop;
+        const foaSection = document.getElementById("foa");
+
+        // Hide navbar when scrolling reaches section 2 (foa) and beyond
+        if (foaSection && scrollTop >= foaSection.offsetTop - 100) {
+          navbar.classList.add("nav-hidden");
+        } else {
+          navbar.classList.remove("nav-hidden");
         }
-        
-        // ========== INTERSECTION OBSERVER UNTUK SCROLL REVEAL ==========
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+      });
 
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('revealed');
-                } else {
-                    // Hilangkan class revealed saat elemen keluar layar agar animasi bisa berulang
-                    entry.target.classList.remove('revealed');
-                }
-            });
-        }, observerOptions);
+      // ========== SMOOTH SCROLL UNTUK NAVBAR BUTTONS ==========
+      document.getElementById("aboutBtn").addEventListener("click", () => {
+        document.getElementById("foa").scrollIntoView({ behavior: "smooth" });
+      });
 
-        // ========== DOM CONTENT LOADED ==========
-        document.addEventListener('DOMContentLoaded', () => {
-            // Setup bahasa saat halaman dimuat
-            setLanguage();
+      document.getElementById("contactBtn").addEventListener("click", () => {
+        document
+          .getElementById("contact")
+          .scrollIntoView({ behavior: "smooth" });
+      });
 
-            // Add reveal-staggered class ke card elements
-            document.querySelectorAll('.kategori-card, .benefit-item, .hof-card, .contact-card').forEach(el => {
-                el.classList.add('reveal-staggered');
-            });
-
-            // Observe semua element dengan class reveal atau reveal-staggered
-            document.querySelectorAll('.reveal, .reveal-staggered').forEach(el => {
-                revealObserver.observe(el);
-            });
+      // ========== HALL OF FAME INTERAKTIF ==========
+      // Click untuk reveal detail
+      document.querySelectorAll(".hof-card").forEach((card) => {
+        card.addEventListener("click", function () {
+          // Tutup card lain yang sedang aktif
+          document.querySelectorAll(".hof-card").forEach((c) => {
+            if (c !== this) c.classList.remove("active");
+          });
+          // Toggle current card
+          this.classList.toggle("active");
         });
+      });
 
-        // ========== HIDE NAVBAR ON SECTION 2 AND BEYOND ==========
-        const navbar = document.querySelector('nav');
-
-        window.addEventListener('scroll', function() {
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const foaSection = document.getElementById('foa');
-            
-            // Hide navbar when scrolling reaches section 2 (foa) and beyond
-            if (foaSection && scrollTop >= (foaSection.offsetTop - 100)) {
-                navbar.classList.add('nav-hidden');
-            } else {
-                navbar.classList.remove('nav-hidden');
-            }
-        });
-
-        // ========== SMOOTH SCROLL UNTUK NAVBAR BUTTONS ==========
-        document.getElementById('aboutBtn').addEventListener('click', () => {
-            document.getElementById('foa').scrollIntoView({ behavior: 'smooth' });
-        });
-
-        document.getElementById('contactBtn').addEventListener('click', () => {
-            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-        });
-
-        // ========== HALL OF FAME INTERAKTIF ==========
-        // Click untuk reveal detail
-        document.querySelectorAll('.hof-card').forEach(card => {
-            card.addEventListener('click', function() {
-                // Tutup card lain yang sedang aktif
-                document.querySelectorAll('.hof-card').forEach(c => {
-                    if (c !== this) c.classList.remove('active');
-                });
-                // Toggle current card
-                this.classList.toggle('active');
-            });
-        });
-
-        // Tutup detail jika click di luar card
-        document.addEventListener('click', function(e) {
-            if (!e.target.closest('.hof-card')) {
-                document.querySelectorAll('.hof-card').forEach(c => c.classList.remove('active'));
-            }
-        });
-        // ========== SLIDER NAVIGASI MANUAL ==========
-        const foaSlider = document.getElementById('foaSlider');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-
-        if (foaSlider && prevBtn && nextBtn) {
-            prevBtn.addEventListener('click', () => {
-                const scrollAmount = foaSlider.clientWidth;
-                // If at the beginning, scroll to the very end
-                if (foaSlider.scrollLeft <= 0) {
-                    foaSlider.scrollTo({ left: foaSlider.scrollWidth, behavior: 'smooth' });
-                } else {
-                    foaSlider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-                }
-            });
-
-            nextBtn.addEventListener('click', () => {
-                const scrollAmount = foaSlider.clientWidth;
-                // If at the end (allowing 5px margin for rounding errors), scroll back to start
-                if (Math.ceil(foaSlider.scrollLeft + foaSlider.clientWidth) >= foaSlider.scrollWidth - 5) {
-                    foaSlider.scrollTo({ left: 0, behavior: 'smooth' });
-                } else {
-                    foaSlider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-                }
-            });
+      // Tutup detail jika click di luar card
+      document.addEventListener("click", function (e) {
+        if (!e.target.closest(".hof-card")) {
+          document
+            .querySelectorAll(".hof-card")
+            .forEach((c) => c.classList.remove("active"));
         }
+      });
+      // ========== SLIDER NAVIGASI MANUAL ==========
+      const foaSlider = document.getElementById("foaSlider");
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
 
-        // ========== TIMELINE TAB SWITCHING (Update) ==========
-        // Agar animasi di-reset dan dijalankan ulang saat user pindah tab (IAC -> NAC -> NSAC)
-        document.querySelectorAll('.timeline-tab-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const tabName = this.getAttribute('data-tab');
-                
-                // Hapus active class
-                document.querySelectorAll('.timeline-tab-btn').forEach(b => b.classList.remove('active'));
-                document.querySelectorAll('.timeline-content').forEach(c => c.classList.remove('active'));
-                
-                // Set active class
-                this.classList.add('active');
-                
-                const timelineContent = document.getElementById(tabName + '-timeline');
-                if (timelineContent) {
-                    timelineContent.classList.add('active');
-                    
-                    // JALANKAN ANIMASI UNTUK TAB YANG BARU DIBUKA
-                    runTimelineAnimation(timelineContent);
-                }
+      if (foaSlider && prevBtn && nextBtn) {
+        prevBtn.addEventListener("click", () => {
+          const scrollAmount = foaSlider.clientWidth;
+          // If at the beginning, scroll to the very end
+          if (foaSlider.scrollLeft <= 0) {
+            foaSlider.scrollTo({
+              left: foaSlider.scrollWidth,
+              behavior: "smooth",
             });
+          } else {
+            foaSlider.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+          }
         });
 
-        // ========== AUTO-ANIMATION TIMELINE (TIME-DRIVEN) ==========
-        const timelineSection = document.getElementById('timeline');
-        let animationTimeouts = []; // Array untuk menyimpan ID timeout
-        
-        // Fungsi untuk menjalankan animasi
-        function runTimelineAnimation(timelineContent) {
-            // Bersihkan semua timeout yang mungkin masih berjalan dari animasi sebelumnya
-            animationTimeouts.forEach(timeoutId => clearTimeout(timeoutId));
-            animationTimeouts = []; // Kosongkan array
+        nextBtn.addEventListener("click", () => {
+          const scrollAmount = foaSlider.clientWidth;
+          // If at the end (allowing 5px margin for rounding errors), scroll back to start
+          if (
+            Math.ceil(foaSlider.scrollLeft + foaSlider.clientWidth) >=
+            foaSlider.scrollWidth - 5
+          ) {
+            foaSlider.scrollTo({ left: 0, behavior: "smooth" });
+          } else {
+            foaSlider.scrollBy({ left: scrollAmount, behavior: "smooth" });
+          }
+        });
+      }
 
-            const progressLine = timelineContent.querySelector('.timeline-progress-line');
-            const checkpoint = timelineContent.querySelector('.timeline-checkpoint');
-            const items = timelineContent.querySelectorAll('.timeline-item');
-            
-            // 1. Reset posisi ke 0 (Cepat, tanpa animasi)
-            if(progressLine) {
-                progressLine.style.transition = 'none';
-                progressLine.style.height = '0%';
-            }
-            if(checkpoint) {
-                checkpoint.style.transition = 'none';
-                checkpoint.style.top = '0%';
-            }
-            items.forEach(item => {
-                const icon = item.querySelector('.timeline-icon');
-                if(icon) icon.classList.remove('glow');
-            });
+      // ========== TIMELINE TAB SWITCHING (Update) ==========
+      // Agar animasi di-reset dan dijalankan ulang saat user pindah tab (IAC -> NAC -> NSAC)
+      document.querySelectorAll(".timeline-tab-btn").forEach((btn) => {
+        btn.addEventListener("click", function () {
+          const tabName = this.getAttribute("data-tab");
 
-            // 2. Beri sedikit jeda, lalu jalankan animasi ke 100%
-            const startTimeout = setTimeout(() => {
-                // Kembalikan efek transisi (durasi 12 detik)
-                if(progressLine) {
-                    progressLine.style.transition = 'height 12s linear';
-                    progressLine.style.height = '100%';
-                }
-                if(checkpoint) {
-                    checkpoint.style.transition = 'top 12s linear';
-                    checkpoint.style.top = '100%';
-                }
+          // Hapus active class
+          document
+            .querySelectorAll(".timeline-tab-btn")
+            .forEach((b) => b.classList.remove("active"));
+          document
+            .querySelectorAll(".timeline-content")
+            .forEach((c) => c.classList.remove("active"));
 
-                // 3. Logika untuk menyalakan Ikon secara bertahap
-                // Karena kita tahu animasinya butuh 12 detik (12000ms), 
-                // kita bisa membagi waktu berdasarkan posisi vertikal elemen
-                const totalDuration = 12000; 
-                const timelineHeight = timelineContent.querySelector('.vertical-timeline').offsetHeight;
-                
-                items.forEach((item) => {
-                    const icon = item.querySelector('.timeline-icon');
-                    // Hitung kapan ikon ini harus menyala (Proporsional dengan letaknya dari atas)
-                    // Titik tengah ikon secara fisik: top-nya 15px dan tingginya 40px, jadi pusatnya di 15 + 20 = 35px
-                    const iconCenterY = item.offsetTop + 35;
-                    let percentage = iconCenterY / timelineHeight;
-                    
-                    // Pastikan persentase antara 0 dan 1
-                    if (percentage < 0) percentage = 0;
-                    if (percentage > 1) percentage = 1;
+          // Set active class
+          this.classList.add("active");
 
-                    const triggerTime = percentage * totalDuration;
-                    
-                    const iconTimeout = setTimeout(() => {
-                        if(icon) icon.classList.add('glow');
-                    }, triggerTime);
-                    
-                    animationTimeouts.push(iconTimeout); // Simpan ID timeout
-                });
+          const timelineContent = document.getElementById(
+            tabName + "-timeline",
+          );
+          if (timelineContent) {
+            timelineContent.classList.add("active");
 
-            }, 100); // Jeda 100ms sebelum mulai turun
-            
-            animationTimeouts.push(startTimeout); // Simpan ID timeout awal
+            // JALANKAN ANIMASI UNTUK TAB YANG BARU DIBUKA
+            runTimelineAnimation(timelineContent);
+          }
+        });
+      });
+
+      // ========== AUTO-ANIMATION TIMELINE (TIME-DRIVEN) ==========
+      const timelineSection = document.getElementById("timeline");
+      let animationTimeouts = []; // Array untuk menyimpan ID timeout
+
+      // Fungsi untuk menjalankan animasi
+      function runTimelineAnimation(timelineContent) {
+        // Bersihkan semua timeout yang mungkin masih berjalan dari animasi sebelumnya
+        animationTimeouts.forEach((timeoutId) => clearTimeout(timeoutId));
+        animationTimeouts = []; // Kosongkan array
+
+        const progressLine = timelineContent.querySelector(
+          ".timeline-progress-line",
+        );
+        const checkpoint = timelineContent.querySelector(
+          ".timeline-checkpoint",
+        );
+        const items = timelineContent.querySelectorAll(".timeline-item");
+
+        // 1. Reset posisi ke 0 (Cepat, tanpa animasi)
+        if (progressLine) {
+          progressLine.style.transition = "none";
+          progressLine.style.height = "0%";
         }
-
-        // Observer untuk mendeteksi kapan section Timeline masuk layar
-        const timelineObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    // Cari tab mana yang sedang aktif saat ini
-                    const activeTimeline = document.querySelector('.timeline-content.active');
-                    if (activeTimeline) {
-                        runTimelineAnimation(activeTimeline);
-                    }
-                }
-            });
-        }, {
-            threshold: 0.3 // Animasi mulai saat 30% dari section timeline sudah terlihat di layar
+        if (checkpoint) {
+          checkpoint.style.transition = "none";
+          checkpoint.style.top = "0%";
+        }
+        items.forEach((item) => {
+          const icon = item.querySelector(".timeline-icon");
+          if (icon) icon.classList.remove("glow");
         });
 
-        // Mulai memantau section timeline
-        if(timelineSection) {
-            timelineObserver.observe(timelineSection);
-        }
+        // 2. Beri sedikit jeda, lalu jalankan animasi ke 100%
+        const startTimeout = setTimeout(() => {
+          // Kembalikan efek transisi (durasi 12 detik)
+          if (progressLine) {
+            progressLine.style.transition = "height 12s linear";
+            progressLine.style.height = "100%";
+          }
+          if (checkpoint) {
+            checkpoint.style.transition = "top 12s linear";
+            checkpoint.style.top = "100%";
+          }
+
+          // 3. Logika untuk menyalakan Ikon secara bertahap
+          // Karena kita tahu animasinya butuh 12 detik (12000ms),
+          // kita bisa membagi waktu berdasarkan posisi vertikal elemen
+          const totalDuration = 12000;
+          const timelineHeight =
+            timelineContent.querySelector(".vertical-timeline").offsetHeight;
+
+          items.forEach((item) => {
+            const icon = item.querySelector(".timeline-icon");
+            // Hitung kapan ikon ini harus menyala (Proporsional dengan letaknya dari atas)
+            // Titik tengah ikon secara fisik: top-nya 15px dan tingginya 40px, jadi pusatnya di 15 + 20 = 35px
+            const iconCenterY = item.offsetTop + 35;
+            let percentage = iconCenterY / timelineHeight;
+
+            // Pastikan persentase antara 0 dan 1
+            if (percentage < 0) percentage = 0;
+            if (percentage > 1) percentage = 1;
+
+            const triggerTime = percentage * totalDuration;
+
+            const iconTimeout = setTimeout(() => {
+              if (icon) icon.classList.add("glow");
+            }, triggerTime);
+
+            animationTimeouts.push(iconTimeout); // Simpan ID timeout
+          });
+        }, 100); // Jeda 100ms sebelum mulai turun
+
+        animationTimeouts.push(startTimeout); // Simpan ID timeout awal
+      }
+
+      // Observer untuk mendeteksi kapan section Timeline masuk layar
+      const timelineObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              // Cari tab mana yang sedang aktif saat ini
+              const activeTimeline = document.querySelector(
+                ".timeline-content.active",
+              );
+              if (activeTimeline) {
+                runTimelineAnimation(activeTimeline);
+              }
+            }
+          });
+        },
+        {
+          threshold: 0.3, // Animasi mulai saat 30% dari section timeline sudah terlihat di layar
+        },
+      );
+
+      // Mulai memantau section timeline
+      if (timelineSection) {
+        timelineObserver.observe(timelineSection);
+      }
     </script>
-</body>
+  </body>
 </html>
