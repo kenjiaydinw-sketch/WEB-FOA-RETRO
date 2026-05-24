@@ -453,15 +453,13 @@
         }
 
         .benefit-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: start;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
         .benefit-list {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 1.5rem;
         }
 
@@ -488,22 +486,6 @@
         .benefit-text p {
             color: #aaa;
             font-size: 0.95rem;
-        }
-
-        .trophy-placeholder {
-            width: 100%;
-            height: 350px;
-            background: url('https://via.placeholder.com/300x350?text=Trophy+Icon');
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            border: 3px dashed var(--pac-gold);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--pac-gold);
-            font-weight: bold;
-            border-radius: 8px;
         }
 
         /* ========== HALL OF FAME SECTION ========== */
@@ -931,9 +913,6 @@
                         <p data-i18n="ben_6_desc">Gaming scholarship programs and sponsorships for talented athletes.</p>
                     </div>
                 </div>
-            </div>
-            <div class="trophy-placeholder">
-                🏅 TROPHY DISPLAY 🏅
             </div>
         </div>
     </section>
