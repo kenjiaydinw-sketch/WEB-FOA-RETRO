@@ -1112,7 +1112,8 @@ section h2 {
   transition: all 0.3s ease;
 }
 
-.contact-circle svg {
+.contact-circle svg,
+.contact-circle img {
   width: 32px;
   height: 32px;
   fill: var(--pac-gold);
@@ -1128,6 +1129,10 @@ section h2 {
 
 .contact-circle:hover svg {
   fill: var(--bg-black);
+}
+
+.contact-circle:hover img {
+  filter: brightness(0);
 }
 
 /* TITLE */
