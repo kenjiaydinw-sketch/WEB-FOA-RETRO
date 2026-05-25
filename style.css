@@ -567,7 +567,13 @@ section h2 {
 .benefit-icon {
   font-size: 1.8rem;
   color: var(--pac-lemon);
-  min-width: 40px;
+  min-width: 48px;
+}
+
+.benefit-icon img {
+  width: 48px;
+  height: auto;
+  display: block;
 }
 
 .benefit-text h4 {
