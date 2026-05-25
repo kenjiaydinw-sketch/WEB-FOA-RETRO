@@ -498,8 +498,16 @@ section h2 {
     rgba(17, 0, 255, 0.1)
   );
   padding: 2rem;
-  border: 2px solid var(--ghost-blue);
-  border-radius: 8px;
+  border: 4px solid var(--ghost-blue);
+  border-radius: 0;
+  clip-path: polygon(
+    8px 0, calc(100% - 8px) 0,
+    calc(100% - 8px) 8px, 100% 8px,
+    100% calc(100% - 8px), calc(100% - 8px) calc(100% - 8px),
+    calc(100% - 8px) 100%, 8px 100%,
+    8px calc(100% - 8px), 0 calc(100% - 8px),
+    0 8px, 8px 8px
+  );
   text-align: center;
   transition: all 0.3s ease;
   position: relative;
@@ -508,7 +516,7 @@ section h2 {
 .kategori-card:hover {
   transform: translateY(-10px);
   border-color: var(--pac-gold);
-  box-shadow: 0 0 20px rgba(255, 213, 0, 0.5);
+  filter: drop-shadow(0 0 15px rgba(255, 213, 0, 0.5));
 }
 
 .kategori-card h3 {
