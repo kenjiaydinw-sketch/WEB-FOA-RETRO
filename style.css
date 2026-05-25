@@ -401,6 +401,8 @@ section h2 {
   line-height: 1.8;
   margin-bottom: 1rem;
   color: #ddd;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 /* ========== FOTO SLIDER (WHAT IS FOA) ========== */
