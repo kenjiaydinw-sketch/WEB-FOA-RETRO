@@ -913,6 +913,7 @@ section h2 {
   .timeline-item:nth-child(even) .timeline-box::after {
     left: -20px;
     right: auto;
+    top: 15px;
     border-right-color: rgba(255, 213, 0, 0.3);
     border-left-color: transparent;
   }
@@ -959,6 +960,11 @@ section h2 {
 
   .timeline-box p {
     text-align: center;
+  }
+
+  .timeline-item:nth-child(odd) .timeline-box::after,
+  .timeline-item:nth-child(even) .timeline-box::after {
+    top: 15px;
   }
 
   .timeline-item p {
