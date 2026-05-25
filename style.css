@@ -119,27 +119,56 @@ nav::before {
   gap: 1rem;
 }
 
+/* ========== 1. TOMBOL HEADER (ABOUT & CONTACT) ========== */
 .nav-btn {
   padding: 0.7rem 1.5rem;
-  border: 2px solid var(--pac-gold);
-  border-radius: 25px;
   background-color: transparent;
   color: var(--pac-gold);
   cursor: pointer;
   font-size: 1rem;
   font-weight: 600;
-  transition: all 0.3s ease;
   outline: none;
+  transition: all 0.1s ease; /* Transisi cepat ala game jadul */
+  
+  /* EFEK PIXEL 8-BIT */
+  border-radius: 0; /* Hilangkan lengkungan */
+  border: 3px solid var(--pac-gold);
+  box-shadow: 4px 4px 0px var(--pac-gold); /* Bayangan blok solid, bukan blur */
 }
 
 .nav-btn:hover {
   background-color: var(--pac-gold);
   color: var(--bg-black);
-  transform: scale(1.05);
+  transform: translate(4px, 4px); /* Efek tombol arcade ditekan */
+  box-shadow: 0px 0px 0px var(--pac-gold); /* Bayangan hilang saat ditekan */
 }
 
-.nav-btn:active {
-  transform: scale(0.95);
+/* ========== TAB TIMELINE (IAC, NAC, NSAC) ========== */
+.timeline-tab-btn {
+  padding: 0.8rem 1.5rem;
+  background: var(--bg-black);
+  color: var(--pac-gold);
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: all 0.1s ease;
+  
+  /* EFEK PIXEL 8-BIT */
+  border-radius: 0;
+  border: 3px solid var(--pac-gold);
+  box-shadow: 4px 4px 0px rgba(255, 213, 0, 0.4);
+}
+
+.timeline-tab-btn:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px rgba(255, 213, 0, 0.6);
+}
+
+.timeline-tab-btn.active {
+  background: var(--pac-gold);
+  color: var(--bg-black);
+  box-shadow: 4px 4px 0px var(--ghost-blue); /* Aksen biru pacman */
+  transform: translate(0px, 0px);
 }
 
 /* ========== HERO SECTION ========== */
@@ -374,9 +403,12 @@ section h2 {
   color: #ddd;
 }
 
+/* ========== FOTO SLIDER (WHAT IS FOA) ========== */
 .slider-wrapper {
   position: relative;
   width: 100%;
+  max-width: 500px; /* Membatasi lebar frame agar proporsional dan elegan */
+  margin: 0 auto;
 }
 
 .slider-btn {
@@ -413,19 +445,24 @@ section h2 {
 }
 
 .foa-image-slider {
-  width: 100%;
-  height: 400px;
-  border: 3px solid var(--ghost-blue);
-  box-shadow: 0 0 20px rgba(17, 0, 255, 0.3);
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
+  display: flex; /* WAJIB: Agar gambar berjejer ke samping, bukan ke bawah */
+  overflow-x: hidden; /* Menyembunyikan scrollbar bawah, kita pakai tombol saja */
   scroll-behavior: smooth;
-  gap: 15px;
-  padding: 10px;
+  scroll-snap-type: x mandatory;
+  width: 100%;
+  height: 300px; /* Tinggi frame TV */
   background-color: var(--bg-black);
-  border-radius: 8px;
-  scrollbar-width: none; /* Hide scrollbar for clean look */
+  
+  /* EFEK BINGKAI PIXEL 8-BIT DI WADAHNYA (FRAME) */
+  border: 4px solid var(--ghost-blue);
+  clip-path: polygon(
+    8px 0, calc(100% - 8px) 0,
+    calc(100% - 8px) 8px, 100% 8px,
+    100% calc(100% - 8px), calc(100% - 8px) calc(100% - 8px),
+    calc(100% - 8px) 100%, 8px 100%,
+    8px calc(100% - 8px), 0 calc(100% - 8px),
+    0 8px, 8px 8px
+  );
 }
 
 .foa-image-slider::-webkit-scrollbar {
@@ -433,13 +470,12 @@ section h2 {
 }
 
 .foa-image-slider img {
-  height: 100%;
   width: 100%;
-  flex: 0 0 100%;
-  scroll-snap-align: center;
-  border-radius: 4px;
+  height: 100%;
+  flex: 0 0 100%; /* WAJIB: Memaksa setiap gambar mengambil 100% lebar frame */
   object-fit: cover;
-  border: 2px solid var(--ghost-blue);
+  scroll-snap-align: center;
+  border-radius: 0;
 }
 
 /* ========== KATEGORI SECTION ========== */
@@ -628,25 +664,28 @@ section h2 {
 
 .timeline-tab-btn {
   padding: 0.8rem 1.5rem;
-  background: rgba(255, 213, 0, 0.1);
-  border: 2px solid var(--pac-gold);
+  background: var(--bg-black);
   color: var(--pac-gold);
   cursor: pointer;
   font-size: 1rem;
-  border-radius: 5px;
-  transition: all 0.3s ease;
   font-weight: bold;
+  transition: all 0.1s ease;
+  /* EFEK PIXEL 8-BIT */
+  border-radius: 0;
+  border: 3px solid var(--pac-gold);
+  box-shadow: 4px 4px 0px rgba(255, 213, 0, 0.4);
 }
 
 .timeline-tab-btn:hover {
-  background: rgba(255, 213, 0, 0.2);
-  box-shadow: 0 0 10px rgba(255, 213, 0, 0.4);
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px rgba(255, 213, 0, 0.6);
 }
 
 .timeline-tab-btn.active {
   background: var(--pac-gold);
   color: var(--bg-black);
-  box-shadow: 0 0 20px rgba(255, 213, 0, 0.6);
+  box-shadow: 4px 4px 0px var(--ghost-blue);
+  transform: translate(0px, 0px);
 }
 
 /* Timeline Container */
@@ -768,15 +807,43 @@ section h2 {
 /* --- KOTAK TEKS (SPEECH BUBBLE) --- */
 .timeline-box {
   padding: 20px;
-  background: linear-gradient(
-    135deg,
-    rgba(59, 153, 231, 0.1),
-    rgba(255, 213, 0, 0.05)
-  );
-  border: 2px solid rgba(255, 213, 0, 0.3);
-  border-radius: 8px;
+  background: var(--bg-black); /* Latar hitam agar retro */
   position: relative;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
+  
+  /* EFEK PIXEL 8-BIT */
+  border-radius: 0;
+  border: 3px solid var(--pac-gold); /* Garis tegas */
+  box-shadow: 6px 6px 0px rgba(255, 213, 0, 0.3); /* Bayangan balok */
+}
+
+.timeline-box:hover {
+  background: rgba(255, 213, 0, 0.1);
+  border-color: var(--pac-gold);
+  box-shadow: 6px 6px 0px var(--pac-gold); /* Balok menyala saat disentuh */
+  transform: translate(-3px, -3px);
+}
+
+/* Mengubah warna tanda panahnya agar sejajar dengan ketegasan border */
+/* Panah KIRI */
+.timeline-item:nth-child(odd) .timeline-box::after {
+  left: 100%;
+  border-left-color: var(--pac-gold);
+}
+
+/* Panah KANAN */
+.timeline-item:nth-child(even) .timeline-box::after {
+  right: 100%;
+  border-right-color: var(--pac-gold);
+}
+
+/* Jangan lupa ubah juga panah KIRI di Media Query (Mobile) */
+@media screen and (max-width: 768px) {
+  .timeline-item:nth-child(odd) .timeline-box::after,
+  .timeline-item:nth-child(even) .timeline-box::after {
+    border-right-color: var(--pac-gold) !important;
+    border-left-color: transparent !important;
+  }
 }
 
 .timeline-box:hover {
@@ -841,6 +908,7 @@ section h2 {
   z-index: 15;
   transition: all 0.5s ease;
   box-shadow: 0 0 10px rgba(255, 213, 0, 0.3);
+  overflow: hidden;
 }
 
 .timeline-icon.glow {
@@ -848,6 +916,20 @@ section h2 {
   box-shadow: 0 0 20px 5px rgba(255, 213, 0, 0.7);
   background-color: #222222;
   color: #ffd500;
+  transform: scale(1.1);
+}
+
+/* Styling untuk gambar di dalam icon */
+.timeline-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.3s ease;
+  display: block;
+  border-radius: 50%;
+}
+
+.timeline-icon.glow img {
   transform: scale(1.1);
 }
 
@@ -913,7 +995,7 @@ section h2 {
   .timeline-item:nth-child(even) .timeline-box::after {
     left: -20px;
     right: auto;
-    top: 10px;
+    top: 15px;
     border-right-color: rgba(255, 213, 0, 0.3);
     border-left-color: transparent;
   }
@@ -922,6 +1004,7 @@ section h2 {
   .timeline-item:nth-child(odd) .timeline-icon,
   .timeline-item:nth-child(even) .timeline-icon {
     left: 11px;
+    top: 15px;
     right: auto;
   }
 
@@ -942,15 +1025,15 @@ section h2 {
   }
 
   .timeline-item {
-    padding: 1.5rem 1rem !important;
-    padding-left: 70px !important;
+   padding: 10px 1rem 10px 70px !important; 
     margin-bottom: 1.5rem;
   }
 
   .timeline-icon {
-    width: 40px !important;
+   width: 40px !important;
     height: 40px !important;
     font-size: 1.1rem !important;
+    top: 15px !important;
   }
 
   .timeline-box h4 {
@@ -964,7 +1047,7 @@ section h2 {
 
   .timeline-item:nth-child(odd) .timeline-box::after,
   .timeline-item:nth-child(even) .timeline-box::after {
-    top: 35px;
+    top: 15px;
   }
 
   .timeline-item p {
