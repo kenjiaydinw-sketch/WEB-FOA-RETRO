@@ -1143,6 +1143,7 @@ footer {
   .hero {
     height: 50vh;
     min-height: 350px;
+    margin-top: 150px;
   }
 
   .hero-slideshow .slide {
