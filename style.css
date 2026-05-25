@@ -1176,57 +1176,63 @@ section h2 {
   font-weight: 600;
 }
 
-/* CONTACT DROPDOWN */
+/* ========== CONTACT DROPDOWN (PERBAIKAN) ========== */
+
+/* Tombol tetap seperti biasa, hilangkan margin negatif yang aneh */
 .contact-dropdown-btn {
   padding: 0;
   cursor: pointer;
-  position: relative;
-  /* Inherit all contact-circle styling */
+  border: 3px solid #000000;
+  background: linear-gradient(135deg, rgba(255, 213, 0, 0.8), rgba(255, 200, 0, 0.7));
 }
 
-.contact-dropdown-menu {
-  position: absolute;
-  top: 140px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--bg-black);
-  border: 3px solid var(--pac-gold);
-  border-radius: 8px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 213, 0, 0.3);
-  z-index: 1000;
-  width: 90%;
-  max-width: 280px;
-  display: none;
-  flex-direction: column;
-  opacity: 0;
-  transition: all 0.3s ease;
-  pointer-events: none;
-}
-
-.contact-item {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.contact-item .contact-box {
-  transition: all 0.3s ease;
+/* Wadah untuk menahan kotak asli dan dropdown */
+.contact-info-wrapper {
+  position: relative; /* KUNCI UTAMA: Menjadi jangkar untuk menu absolute */
   width: 100%;
 }
 
-.contact-item.dropdown-active .contact-box {
-  visibility: hidden;
-  height: 0;
-  overflow: hidden;
-  padding: 0;
-  margin: 0;
+/* Kotak Teks Asli */
+.contact-item .contact-box {
+  width: 100%;
+  transition: opacity 0.2s ease;
 }
 
-.contact-dropdown-menu.show {
+/* Sembunyikan isi kotak asli (Hanya transparan, ukurannya tetap ada agar layar tidak loncat) */
+.contact-item.dropdown-active #contactTextOriginal {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Menu Dropdown Mengambang (Absolute) */
+.contact-dropdown-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* Memaksa tinggi menu sama persis dengan kotak asli */
+  
+  background: var(--bg-black);
+  border: 3px solid var(--pac-gold);
+  border-radius: 14px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 213, 0, 0.3);
+  z-index: 10;
+  
   display: flex;
+  flex-direction: column;
+  justify-content: center; /* Teks menu di tengah secara vertikal */
+  
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+/* Tampilkan menu dengan efek turun mulus */
+.contact-item.dropdown-active .contact-dropdown-menu {
   opacity: 1;
-  pointer-events: all;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 .dropdown-option {
@@ -1234,49 +1240,29 @@ section h2 {
   padding: 1rem;
   color: var(--pac-gold);
   text-decoration: none;
-  border-bottom: 2px solid var(--ghost-blue);
-  transition: all 0.3s ease;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
   text-align: center;
-  font-size: 0.9rem;
-  line-height: 1.6;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  position: relative; /* Untuk garis pembatas animasi */
 }
 
-.dropdown-option:last-child {
-  border-bottom: none;
+/* Garis pembatas neon biru di tengah (kecuali item terakhir) */
+.dropdown-option:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  width: 80%;
+  height: 2px;
+  background-color: var(--ghost-blue);
+  box-shadow: 0 0 5px var(--ghost-blue);
 }
 
 .dropdown-option:hover {
   background: rgba(255, 213, 0, 0.1);
   color: var(--text-white);
-  transform: translateX(2px);
-}
-
-/* Mobile Responsive - Contact Dropdown */
-@media (max-width: 768px) {
-  .contact-dropdown-menu {
-    top: 110px;
-    max-width: 85vw;
-    min-width: 90vw;
-  }
-}
-
-@media (max-width: 480px) {
-  .contact-dropdown-menu {
-    top: 100px;
-    max-width: 90vw;
-    width: auto;
-  }
-
-  .dropdown-option {
-    padding: 0.8rem 0.5rem;
-    font-size: 0.85rem;
-  }
-}
-
-/* Ensure dropdown doesn't get cut off */
-.contact-grid {
-  position: relative;
-  z-index: 1;
 }
 
 /* ========== FOOTER ========== */

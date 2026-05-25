@@ -448,34 +448,29 @@
 
         <!-- PHONE -->
         <div class="contact-item">
-          <button
-            class="contact-circle contact-dropdown-btn"
-            id="contactDropdownBtn"
-            title="Pilih kontak"
-          >
+          <button class="contact-circle contact-dropdown-btn" id="contactDropdownBtn" title="Pilih kontak">
             <img src="Icon%20Contact/whatsapp.png" alt="WhatsApp Icon" />
           </button>
-          <div class="contact-dropdown-menu" id="contactDropdownMenu">
-            <a href="https://wa.me/6287849701185" target="_blank" class="dropdown-option">
-              <strong>Koordinator</strong><br>
-              Haaris F<br>
-              +62 878-4970-1185
-            </a>
-            <a href="https://wa.me/6281234567890" target="_blank" class="dropdown-option">
-              <strong>Humas FoA</strong><br>
-              Siti Aminah<br>
-              +62 812-3456-7890
-            </a>
-          </div>
+          
           <h3>Contact Person</h3>
-          <div class="contact-box">
-            <p><strong>Koordinator</strong></p>
-            <p>Haaris F</p>
-            <p>+62 878-4970-1185</p>
-            <br />
-            <p><strong>Humas FoA</strong></p>
-            <p>Siti Aminah</p>
-            <p>+62 812-3456-7890</p>
+          
+          <div class="contact-info-wrapper">
+            
+            <div class="contact-box" id="contactTextOriginal">
+              <p><strong>Koordinator</strong></p>
+              <p>Haaris F</p>
+              <p>+62 878-4970-1185</p>
+              <br />
+              <p><strong>Humas FoA</strong></p>
+              <p>Siti Aminah</p>
+              <p>+62 812-3456-7890</p>
+            </div>
+
+            <div class="contact-dropdown-menu" id="contactDropdownMenu">
+              <a href="https://wa.me/6287849701185" target="_blank" class="dropdown-option">Koordinator (Haaris F - +62 878-4970-1185)</a>
+              <a href="https://wa.me/6281234567890" target="_blank" class="dropdown-option">Humas FoA (Siti Aminah - +62 812-3456-7890)</a>
+            </div>
+
           </div>
         </div>
       </div>
@@ -680,21 +675,20 @@
 
         // ========== CONTACT DROPDOWN ==========
         const contactDropdownBtn = document.getElementById("contactDropdownBtn");
-        const contactDropdownMenu = document.getElementById("contactDropdownMenu");
-        const contactItem = contactDropdownBtn?.closest(".contact-item");
+        // Kita langsung target parent item-nya
+        const contactItemTarget = contactDropdownBtn?.closest(".contact-item");
 
-        if (contactDropdownBtn && contactDropdownMenu && contactItem) {
+        if (contactDropdownBtn && contactItemTarget) {
           contactDropdownBtn.addEventListener("click", (e) => {
             e.stopPropagation();
-            contactDropdownMenu.classList.toggle("show");
-            contactItem.classList.toggle("dropdown-active");
+            // Cukup toggle class di pembungkus utamanya
+            contactItemTarget.classList.toggle("dropdown-active");
           });
 
           // Tutup dropdown saat klik di luar
           document.addEventListener("click", (e) => {
-            if (!e.target.closest(".contact-item")) {
-              contactDropdownMenu.classList.remove("show");
-              contactItem.classList.remove("dropdown-active");
+            if (!e.target.closest(".contact-info-wrapper") && !e.target.closest("#contactDropdownBtn")) {
+              contactItemTarget.classList.remove("dropdown-active");
             }
           });
         }
