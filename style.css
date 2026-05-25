@@ -302,25 +302,28 @@ nav::before {
 
 .game-start-btn {
   font-family: "Press Start 2P", cursive;
-  font-size: 0.8rem;
-  color: var(--text-white);
-  background-color: transparent;
-  border: 2px solid var(--text-white);
-  padding: 0.6rem 1.2rem;
+  font-size: 0.6rem;
+  color: #333333;
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 50%, #ffd700 100%);
+  border: 4px solid #000000;
+  padding: 0.5rem 0.8rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.1s ease;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  justify-content: center;
+  gap: 0.3rem;
   margin-top: 1.5rem;
   letter-spacing: 1px;
+  border-radius: 12px;
+  box-shadow: inset -2px -2px 0px rgba(0, 0, 0, 0.3), inset 2px 2px 0px rgba(255, 255, 255, 0.5), 5px 5px 0px rgba(0, 0, 0, 0.6);
 }
 
 .game-start-btn:hover {
-  background-color: var(--text-white);
-  color: var(--bg-black);
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-  transform: scale(1.05);
+  background: linear-gradient(135deg, #ffed4e 0%, #ffd700 50%, #ffed4e 100%);
+  color: #000000;
+  transform: translate(3px, 3px);
+  box-shadow: inset -2px -2px 0px rgba(0, 0, 0, 0.3), inset 2px 2px 0px rgba(255, 255, 255, 0.5), 2px 2px 0px rgba(0, 0, 0, 0.6);
 }
 
 .game-start-btn .arrow {
@@ -457,14 +460,8 @@ section h2 {
   
   /* EFEK BINGKAI PIXEL 8-BIT DI WADAHNYA (FRAME) */
   border: 4px solid var(--ghost-blue);
-  clip-path: polygon(
-    8px 0, calc(100% - 8px) 0,
-    calc(100% - 8px) 8px, 100% 8px,
-    100% calc(100% - 8px), calc(100% - 8px) calc(100% - 8px),
-    calc(100% - 8px) 100%, 8px 100%,
-    8px calc(100% - 8px), 0 calc(100% - 8px),
-    0 8px, 8px 8px
-  );
+  border-radius: 20px;
+  box-shadow: inset -2px -2px 0px rgba(0, 0, 0, 0.3), inset 2px 2px 0px rgba(59, 153, 231, 0.3);
 }
 
 .foa-image-slider::-webkit-scrollbar {
@@ -477,7 +474,7 @@ section h2 {
   flex: 0 0 100%; /* WAJIB: Memaksa setiap gambar mengambil 100% lebar frame */
   object-fit: cover;
   scroll-snap-align: center;
-  border-radius: 0;
+  border-radius: 16px;
 }
 
 /* ========== KATEGORI SECTION ========== */
@@ -499,15 +496,8 @@ section h2 {
   );
   padding: 2rem;
   border: 4px solid var(--ghost-blue);
-  border-radius: 0;
-  clip-path: polygon(
-    8px 0, calc(100% - 8px) 0,
-    calc(100% - 8px) 8px, 100% 8px,
-    100% calc(100% - 8px), calc(100% - 8px) calc(100% - 8px),
-    calc(100% - 8px) 100%, 8px 100%,
-    8px calc(100% - 8px), 0 calc(100% - 8px),
-    0 8px, 8px 8px
-  );
+  border-radius: 20px;
+  box-shadow: inset -2px -2px 0px rgba(0, 0, 0, 0.3), inset 2px 2px 0px rgba(59, 153, 231, 0.3);
   text-align: center;
   transition: all 0.3s ease;
   position: relative;
@@ -1105,15 +1095,17 @@ section h2 {
   justify-content: center;
   align-items: center;
 
-  border-radius: 50%;
+  border-radius: 0;
+  clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
 
   background: linear-gradient(
     135deg,
-    rgba(255, 213, 0, 0.12),
-    rgba(255, 213, 0, 0.05)
+    rgba(255, 213, 0, 0.8),
+    rgba(255, 200, 0, 0.7)
   );
+  box-shadow: inset -2px -2px 0px rgba(0, 0, 0, 0.3), inset 2px 2px 0px rgba(255, 255, 255, 0.4), 4px 4px 0px rgba(0, 0, 0, 0.5);
 
-  border: 2px solid var(--pac-gold);
+  border: 3px solid #000000;
 
   transition: all 0.3s ease;
 }
@@ -1183,6 +1175,110 @@ section h2 {
   color: white;
   font-weight: 600;
 }
+
+/* CONTACT DROPDOWN */
+.contact-dropdown-btn {
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+  /* Inherit all contact-circle styling */
+}
+
+.contact-dropdown-menu {
+  position: absolute;
+  top: 140px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-black);
+  border: 3px solid var(--pac-gold);
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 213, 0, 0.3);
+  z-index: 1000;
+  width: 90%;
+  max-width: 280px;
+  display: none;
+  flex-direction: column;
+  opacity: 0;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.contact-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-item .contact-box {
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.contact-item.dropdown-active .contact-box {
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-dropdown-menu.show {
+  display: flex;
+  opacity: 1;
+  pointer-events: all;
+}
+
+.dropdown-option {
+  display: block;
+  padding: 1rem;
+  color: var(--pac-gold);
+  text-decoration: none;
+  border-bottom: 2px solid var(--ghost-blue);
+  transition: all 0.3s ease;
+  text-align: center;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.dropdown-option:last-child {
+  border-bottom: none;
+}
+
+.dropdown-option:hover {
+  background: rgba(255, 213, 0, 0.1);
+  color: var(--text-white);
+  transform: translateX(2px);
+}
+
+/* Mobile Responsive - Contact Dropdown */
+@media (max-width: 768px) {
+  .contact-dropdown-menu {
+    top: 110px;
+    max-width: 85vw;
+    min-width: 90vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-dropdown-menu {
+    top: 100px;
+    max-width: 90vw;
+    width: auto;
+  }
+
+  .dropdown-option {
+    padding: 0.8rem 0.5rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* Ensure dropdown doesn't get cut off */
+.contact-grid {
+  position: relative;
+  z-index: 1;
+}
+
 /* ========== FOOTER ========== */
 footer {
   text-align: center;
