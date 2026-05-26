@@ -109,30 +109,42 @@
     <section id="kategori" class="reveal">
       <h2 data-i18n="cat_heading">Competition Categories</h2>
       <div class="kategori-grid">
+        
         <div class="kategori-card">
-          <h3>NSAC</h3>
-          <p data-i18n="cat_nsac_desc">
-            National SAC Championship - A national-level competition for
-            regional champions with the highest playing standards.
-          </p>
-        </div>
+          <h3 onclick="toggleCategoryText(this)">NSAC</h3>
+          
+          <div class="category-desc">
+            <p data-i18n="cat_nsac_desc">
+              National SAC Championship - A national-level competition for
+              regional champions with the highest playing standards.
+            </p>
+          </div>
+          </div>
+
         <div class="kategori-card">
-          <h3>NAC</h3>
-          <p data-i18n="cat_nac_desc">
-            National Arcade Cup - An open arcade tournament for all skill levels
-            with exciting prizes awaiting the winners.
-          </p>
+          <h3 onclick="toggleCategoryText(this)">NAC</h3>
+
+          <div class="category-desc">
+            <p data-i18n="cat_nac_desc">
+              National Arcade Cup - An open arcade tournament for all skill levels
+              with exciting prizes awaiting the winners.
+            </p>
+          </div>
         </div>
+
         <div class="kategori-card">
-          <h3>IAC</h3>
-          <p data-i18n="cat_iac_desc">
-            International AISAC - An international competition bringing together
-            the best gamers from various countries in Asia.
-          </p>
+          <h3 onclick="toggleCategoryText(this)">IAC</h3>
+          
+          <div class="category-desc">
+            <p data-i18n="cat_iac_desc">
+              International AISAC - An international competition bringing together
+              the best gamers from various countries in Asia.
+            </p>
+          </div>
         </div>
+
       </div>
     </section>
-
     <!-- BENEFIT SECTION -->
     <section id="benefit" class="reveal">
       <h2 data-i18n="ben_heading">Participant Benefits</h2>
@@ -498,6 +510,17 @@
     </footer>
 
     <script>
+      // ========== TOGGLE KATEGORI TEKS ==========
+      function toggleCategoryText(headerElement) {
+        // Cari wadah div .category-desc yang berada tepat setelah h3
+        const descBox = headerElement.nextElementSibling;
+        
+        // Tambah/Hapus class 'active' untuk membuka/menutup animasi
+        if (descBox) {
+          descBox.classList.toggle("active");
+        }
+      }
+
       // ========== INTERNATIONALIZATION (i18n) ==========
       const translations = {
         en: {
