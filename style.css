@@ -399,13 +399,14 @@ section h2 {
 
 .foa-text p {
   font-family: "Open Sans", sans-serif;
-  font-weight: 400;
+  font-weight: 700;
   font-size: 1rem;
   line-height: 1.8;
   margin-bottom: 1rem;
   color: #ddd;
   text-align: justify;
   text-justify: inter-word;
+  text-shadow: 0 0 20px rgba(255, 213, 0, 0.6), 0 0 40px rgba(17, 0, 255, 0.5), 0 0 60px rgba(255, 213, 0, 0.3);
 }
 
 /* ========== FOTO SLIDER (WHAT IS FOA) ========== */
@@ -520,9 +521,10 @@ section h2 {
 
 .kategori-card p {
   font-family: "Open Sans", sans-serif;
-  font-weight: 400;
+  font-weight: 700;
   color: #ccc;
   line-height: 1.8;
+  text-shadow: 0 0 20px rgba(255, 213, 0, 0.6), 0 0 40px rgba(17, 0, 255, 0.5), 0 0 60px rgba(255, 213, 0, 0.3);
 }
 
 /* ========== BENEFIT SECTION ========== */
@@ -569,11 +571,14 @@ section h2 {
 .benefit-text h4 {
   color: var(--pac-gold);
   margin-bottom: 0.5rem;
+  font-weight: 700;
+  font-size: 1.2rem;
 }
 
 .benefit-text p {
   color: #aaa;
   font-size: 0.95rem;
+  font-weight: 700;
 }
 
 /* ========== HALL OF FAME SECTION ========== */
