@@ -35,46 +35,37 @@
 
     <!-- HERO SECTION -->
     <section class="hero">
-      <div class="hero-slideshow">
-        <div
-          class="slide"
-          style="background-image: url(&quot;Foto%20Hero%20Section/1.JPG&quot;)"
-        ></div>
-        <div
-          class="slide"
-          style="background-image: url(&quot;Foto%20Hero%20Section/2.png&quot;)"
-        ></div>
-        <div
-          class="slide"
-          style="background-image: url(&quot;Foto%20Hero%20Section/3.png&quot;)"
-        ></div>
-        <div
-          class="slide"
-          style="background-image: url(&quot;Foto%20Hero%20Section/4.png&quot;)"
-        ></div>
-        <div
-          class="slide"
-          style="background-image: url(&quot;Foto%20Hero%20Section/5.png&quot;)"
-        ></div>
-        <div
-          class="slide"
-          style="background-image: url(&quot;Foto%20Hero%20Section/6.png&quot;)"
-        ></div>
-      </div>
-      <div class="hero-overlay"></div>
-      <div class="hero-content">
-        <h1 data-i18n="hero_title">Festival Of Agroindustry</h1>
-        <button
-          class="game-start-btn"
-          onclick="
-            document
-              .getElementById('foa')
-              .scrollIntoView({ behavior: 'smooth' })
-          "
-        >
-          GAME START
-          <span class="arrow">→</span>
-        </button>
+      <div class="hero-overlay"></div> <div class="hero-container">
+        
+        <div class="hero-text-side">
+          <h1 data-i18n="hero_title">Festival Of<br>Agroindustry</h1>
+          
+          <p data-i18n="hero_subtitle">
+            Solusi Inovatif untuk Masa Depan Agroindustri Indonesia yang Lebih Maju.
+          </p>
+          
+          <button
+            class="game-start-btn"
+            onclick="document.getElementById('foa').scrollIntoView({ behavior: 'smooth' })"
+          >
+            GAME START
+            <span class="arrow">→</span>
+          </button>
+        </div>
+
+        <div class="hero-image-side">
+          <div class="retro-skew-frame">
+            <div class="hero-slideshow">
+              <div class="slide" style="background-image: url('Foto%20Hero%20Section/1.JPG')"></div>
+              <div class="slide" style="background-image: url('Foto%20Hero%20Section/2.png')"></div>
+              <div class="slide" style="background-image: url('Foto%20Hero%20Section/3.png')"></div>
+              <div class="slide" style="background-image: url('Foto%20Hero%20Section/4.png')"></div>
+              <div class="slide" style="background-image: url('Foto%20Hero%20Section/5.png')"></div>
+              <div class="slide" style="background-image: url('Foto%20Hero%20Section/6.png')"></div>
+            </div>
+          </div>
+        </div>
+        
       </div>
     </section>
 
