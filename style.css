@@ -173,104 +173,43 @@ nav::before {
   transform: translate(0px, 0px);
 }
 
-/* ========== HERO SECTION ========== */
+/* ========== HERO SECTION (RETRO SPLIT-LAYOUT) ========== */
 .hero {
-  height: 100vh;
-  background-color: var(--bg-black);
+  min-height: 100vh;
+  background: transparent !important;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  margin-top: 100px;
+  padding: 120px 2rem 4rem 2rem;
   position: relative;
   overflow: hidden;
 }
 
-.hero-slideshow {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-}
-
-.hero-slideshow .slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0;
-  animation: slideFade 24s infinite;
-}
-
-.hero-slideshow .slide:nth-child(1) {
-  animation-delay: 0s;
-}
-.hero-slideshow .slide:nth-child(2) {
-  animation-delay: 4s;
-}
-.hero-slideshow .slide:nth-child(3) {
-  animation-delay: 8s;
-}
-.hero-slideshow .slide:nth-child(4) {
-  animation-delay: 12s;
-}
-.hero-slideshow .slide:nth-child(5) {
-  animation-delay: 16s;
-}
-.hero-slideshow .slide:nth-child(6) {
-  animation-delay: 20s;
-}
-
-@keyframes slideFade {
-  0% {
-    opacity: 0;
-    transform: scale(1);
-  }
-  5% {
-    opacity: 1;
-  }
-  16.66% {
-    opacity: 1;
-  }
-  21.66% {
-    opacity: 0;
-    transform: scale(1.05);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1);
-  }
-}
-
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
-  z-index: 1;
-}
-
-.hero-content {
+/* WADAH UTAMA KIRI & KANAN */
+.hero-container {
+  position: relative;
   z-index: 2;
+  width: 100%;
+  max-width: 1300px; /* Lebar maksimal konten */
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Membagi layar jadi 2 kolom (50:50) */
+  gap: 4rem; /* Jarak antara teks dan gambar */
+  align-items: center;
+}
+
+/* --- BAGIAN KIRI: TEKS --- */
+.hero-text-side {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start; /* Rata kiri */
+  text-align: left; /* Teks rata kiri */
 }
 
-.hero h1 {
+.hero-text-side h1 {
   font-family: "Press Start 2P", cursive;
-  font-size: 3.5rem;
+  font-size: 2.8rem; /* Sedikit dikecilkan agar pas di setengah layar */
   line-height: 1.5;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   background: linear-gradient(to bottom, #fd0000 10%, #f9ed00 90%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -278,44 +217,32 @@ nav::before {
   filter: drop-shadow(4px 4px 0px #8b0000);
 }
 
-.hero p {
-  font-size: 1.5rem;
+.hero-text-side p {
+  font-size: 1.15rem;
   color: var(--ghost-light-blue);
-  margin-bottom: 2rem;
-  font-weight: 300;
+  margin-bottom: 2.5rem;
+  font-weight: 700;
+  line-height: 1.8;
+  text-shadow: 0 0 15px rgba(59, 153, 231, 0.4);
 }
 
-.hero-cta {
-  padding: 1rem 2.5rem;
-  background: linear-gradient(90deg, var(--pac-gold), var(--pac-lemon));
-  color: var(--bg-black);
-  border: none;
-  font-size: 1.1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 20px rgba(255, 213, 0, 0.5);
+.hero-text-side .game-start-btn {
+  margin-top: 0; /* Menghilangkan margin atas karena sudah ada dari P */
 }
 
-.hero-cta:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 40px rgba(255, 213, 0, 0.8);
-}
-
+/* TOMBOL GAME START (Dipertahankan dari aslinya) */
 .game-start-btn {
   font-family: "Press Start 2P", cursive;
   font-size: 0.6rem;
   color: #333333;
   background: linear-gradient(135deg, #ffd700 0%, #ffed4e 50%, #ffd700 100%);
   border: 4px solid #000000;
-  padding: 0.5rem 0.8rem;
+  padding: 0.8rem 1.2rem;
   cursor: pointer;
   transition: all 0.1s ease;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 0.3rem;
-  margin-top: 1.5rem;
+  gap: 0.5rem;
   letter-spacing: 1px;
   border-radius: 12px;
   box-shadow: inset -2px -2px 0px rgba(0, 0, 0, 0.3), inset 2px 2px 0px rgba(255, 255, 255, 0.5), 5px 5px 0px rgba(0, 0, 0, 0.6);
@@ -335,17 +262,105 @@ nav::before {
 }
 
 @keyframes flickArrow {
-  0% {
-    transform: translateX(0);
-    opacity: 1;
+  0% { transform: translateX(0); opacity: 1; }
+  50% { transform: translateX(8px); opacity: 0.7; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+/* --- BAGIAN KANAN: FRAME DIAGONAL RETRO --- */
+.hero-image-side {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Ini yang membuat potongan miring (Diagonal Cut) */
+.retro-skew-frame {
+  width: 100%;
+  height: 65vh; /* Tinggi menyesuaikan */
+  min-height: 450px;
+  transform: skewX(-8deg); /* KUNCI DIAGONAL: Memiringkan kotak ke kiri */
+  
+  border: 6px solid var(--ghost-blue);
+  box-shadow: 
+    15px 15px 0px rgba(17, 0, 255, 0.3), /* Bayangan balok */
+    inset 0 0 30px rgba(59, 153, 231, 0.5); /* Sinar dari dalam */
+  border-radius: 15px; 
+  overflow: hidden; /* Potong gambar yang keluar bingkai */
+  background-color: var(--bg-black);
+  position: relative;
+}
+
+/* Efek Garis Monitor Jadul (Scanlines) di atas foto */
+.retro-skew-frame::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+  background-size: 100% 4px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.hero-slideshow {
+  width: 100%;
+  height: 100%;
+  /* KUNCI PENTING: Luruskan kembali fotonya agar tidak ikut miring */
+  transform: skewX(8deg) scale(1.2); 
+  position: relative;
+}
+
+.hero-slideshow .slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  /* Karena dibingkai ketat, gunakan 'cover' agar foto penuh mengisi ruang */
+  background-size: cover; 
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  animation: slideFade 24s infinite;
+}
+
+/* Timing Animasi Foto */
+.hero-slideshow .slide:nth-child(1) { animation-delay: 0s; }
+.hero-slideshow .slide:nth-child(2) { animation-delay: 4s; }
+.hero-slideshow .slide:nth-child(3) { animation-delay: 8s; }
+.hero-slideshow .slide:nth-child(4) { animation-delay: 12s; }
+.hero-slideshow .slide:nth-child(5) { animation-delay: 16s; }
+.hero-slideshow .slide:nth-child(6) { animation-delay: 20s; }
+
+@keyframes slideFade {
+  0% { opacity: 0; transform: scale(1); }
+  5% { opacity: 1; }
+  16.66% { opacity: 1; }
+  21.66% { opacity: 0; transform: scale(1.05); }
+  100% { opacity: 0; transform: scale(1); }
+}
+
+/* --- RESPONSIVE UNTUK LAYAR KECIL --- */
+@media (max-width: 992px) {
+  .hero-container {
+    grid-template-columns: 1fr; /* Tumpuk atas bawah di HP */
+    text-align: center;
+    gap: 3rem;
   }
-  50% {
-    transform: translateX(8px);
-    opacity: 0.7;
+  
+  .hero-text-side {
+    align-items: center; /* Rata tengah di HP */
+    text-align: center;
   }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
+  
+  .retro-skew-frame {
+    transform: skewX(0); /* Hilangkan efek miring di HP agar ruang lega */
+    height: 45vh;
+  }
+  
+  .hero-slideshow {
+    transform: skewX(0) scale(1); /* Luruskan foto di HP */
   }
 }
 
@@ -528,36 +543,41 @@ section h2 {
   text-shadow: 0 0 15px var(--pac-gold);
 }
 
-/* WADAH TEKS ANIMASI */
+/* ========================================= */
+/* WADAH TEKS ANIMASI (GRID VERSION - 100% SMOOTH) */
+/* ========================================= */
 .category-desc {
   display: grid;
-  grid-template-rows: 0fr;
-  opacity: 0; /* Bikin transparan di awal */
-  margin-top: 0;
-  transform: translateY(-15px);
-  /* Animasi mulus buka-tutup dengan grid */
-  transition: grid-template-rows 0.6s cubic-bezier(0.25, 1, 0.5, 1), 
-              margin-top 0.6s cubic-bezier(0.25, 1, 0.5, 1), 
-              opacity 0.5s ease-in-out, 
-              transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  grid-template-rows: 0fr; /* Kunci utama: Mulai dari ukuran 0 */
+  padding-top: 0;
+  opacity: 0;
+  
+  /* Animasi super mulus tanpa menghitung tinggi palsu */
+  transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              padding-top 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.3s ease-in-out;
 }
 
-/* CLASS AKTIF: Akan ditambahkan oleh JavaScript saat di-klik */
+/* CLASS AKTIF: Saat diklik */
 .category-desc.active {
-  grid-template-rows: 1fr; 
-  margin-top: 1.5rem; /* Kasih jarak dari H3 saat terbuka */
-  opacity: 1; /* Munculkan teksnya */
-  transform: translateY(0);
+  grid-template-rows: 1fr; /* Kunci utama: Buka persis seukuran isi teks (1 fraction) */
+  padding-top: 1.5rem;
+  opacity: 1;
 }
 
+/* ========================================= */
+/* TEKS PUTIH DI DALAMNYA */
+/* ========================================= */
 .category-desc p {
-  overflow: hidden; /* Penting untuk animasi grid-template-rows */
+  min-height: 0; /* WAJIB ADA: Agar trik grid 0fr berfungsi tanpa bug */
+  overflow: hidden; /* WAJIB ADA: Menyembunyikan teks saat kotak menyusut */
+  
   font-family: "Open Sans", sans-serif;
   font-weight: 700;
   color: #ccc;
   line-height: 1.8;
   text-align: justify;
-  margin: 0; /* Hilangkan margin p agar ga ngerusak animasi */
+  margin: 0; 
   text-shadow: 0 0 20px rgba(255, 213, 0, 0.3), 0 0 40px rgba(17, 0, 255, 0.5), 0 0 60px rgba(255, 213, 0, 0.3);
 }
 
@@ -1316,26 +1336,54 @@ footer {
   }
 
   .hero {
-    height: 50vh;
-    min-height: 350px;
-    margin-top: 150px;
+    padding: 180px 1.5rem 3rem 1.5rem;
+    min-height: auto;
   }
 
-  .hero-slideshow .slide {
-    background-size: cover;
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
 
-  .hero h1 {
+  /* ===================================== */
+  /* TRIK MENUKAR URUTAN (FOTO JADI DI ATAS) */
+  /* ===================================== */
+  .hero-image-side {
+    order: 1; /* Tampil urutan pertama (di atas) */
+  }
+
+  .hero-text-side {
+    order: 2; /* Tampil urutan kedua (di bawah foto) */
+    align-items: center;
+    text-align: center;
+  }
+  
+  /* ===================================== */
+
+  .hero-text-side h1 {
     font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero-text-side p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .retro-skew-frame {
+    transform: skewX(0);
+    height: 35vh;
+    min-height: 250px;
+    border-width: 4px;
+  }
+
+  .hero-slideshow {
+    transform: skewX(0) scale(1);
   }
 
   .game-start-btn {
     font-size: 0.6rem;
     padding: 0.5rem 1rem;
-  }
-
-  .hero p {
-    font-size: 1rem;
   }
 
   section {
@@ -1448,8 +1496,26 @@ footer {
 }
 
 @media (max-width: 480px) {
-  .hero h1 {
+  .hero {
+    padding: 160px 1rem 2rem 1rem;
+  }
+
+  .hero-text-side h1 {
     font-size: 1.5rem;
+  }
+
+  .hero-text-side p {
+    font-size: 0.9rem;
+  }
+
+  .retro-skew-frame {
+    height: 30vh;
+    min-height: 200px;
+  }
+
+  .game-start-btn {
+    font-size: 0.55rem;
+    padding: 0.6rem 1rem;
   }
 
   .foa-text p {
