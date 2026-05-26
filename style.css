@@ -551,7 +551,7 @@ section h2 {
   line-height: 1.8;
   text-align: justify;
   margin: 0; /* Hilangkan margin p agar ga ngerusak animasi */
-  text-shadow: none; /* Bersihkan text shadow kalau ada */
+  text-shadow: 0 0 20px rgba(255, 213, 0, 0.3), 0 0 40px rgba(17, 0, 255, 0.5), 0 0 60px rgba(255, 213, 0, 0.3);
 }
 
 /* ========== BENEFIT SECTION ========== */
@@ -1359,6 +1359,10 @@ footer {
     text-shadow: 0 0 20px rgba(255, 213, 0, 0.4), 0 0 40px rgba(17, 0, 255, 0.4), 0 0 60px rgba(255, 213, 0, 0.3);
   }
 
+  .category-desc p {
+    text-shadow: 0 0 20px rgba(255, 213, 0, 0.4), 0 0 40px rgba(17, 0, 255, 0.4), 0 0 60px rgba(255, 213, 0, 0.3);
+  }
+
   .benefit-container {
     grid-template-columns: 1fr;
   }
@@ -1442,6 +1446,10 @@ footer {
   }
 
   .foa-text p {
+    text-shadow: 0 0 20px rgba(255, 213, 0, 0.3), 0 0 40px rgba(17, 0, 255, 0.3), 0 0 60px rgba(255, 213, 0, 0.2);
+  }
+
+  .category-desc p {
     text-shadow: 0 0 20px rgba(255, 213, 0, 0.3), 0 0 40px rgba(17, 0, 255, 0.3), 0 0 60px rgba(255, 213, 0, 0.2);
   }
 
