@@ -533,8 +533,8 @@ section h2 {
   max-height: 0; /* Tinggi awal 0 = Sembunyi */
   overflow: hidden; /* Sembunyikan apapun yang melebihi tinggi */
   opacity: 0; /* Bikin transparan di awal */
-  /* Animasi mulus buka-tutup */
-  transition: max-height 0.4s ease-out, margin-top 0.4s ease-out, opacity 0.3s ease-out;
+  /* Animasi mulus buka-tutup - synchronized tanpa delay */
+  transition: max-height 0.3s ease, margin-top 0.3s ease, opacity 0.3s ease;
 }
 
 /* CLASS AKTIF: Akan ditambahkan oleh JavaScript saat di-klik */
@@ -609,83 +609,6 @@ section h2 {
 }
 
 /* ========== HALL OF FAME SECTION ========== */
-#halloffame {
-  background-color: #0a0a0a;
-}
-
-.hof-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-}
-
-.hof-card {
-  position: relative;
-  cursor: pointer;
-  perspective: 1000px;
-}
-
-.hof-image {
-  width: 100%;
-  height: 300px;
-  background: url("https://via.placeholder.com/280x300?text=Winner+1")
-    center/cover;
-  border: 3px solid var(--pac-gold);
-  border-radius: 8px;
-  transition: all 0.3s ease;
-}
-
-.hof-card:hover .hof-image {
-  box-shadow: 0 0 20px rgba(255, 213, 0, 0.5);
-  transform: scale(1.05);
-}
-
-.hof-detail {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.95);
-  padding: 1.5rem;
-  border: 3px solid var(--pac-gold);
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  opacity: 0;
-  transform: scale(0.9);
-  transition: all 0.3s ease;
-  pointer-events: none;
-}
-
-.hof-card:hover .hof-detail,
-.hof-card.active .hof-detail {
-  opacity: 1;
-  transform: scale(1);
-  pointer-events: all;
-}
-
-.hof-detail h4 {
-  color: var(--pac-gold);
-  font-size: 1.3rem;
-  margin-bottom: 0.5rem;
-}
-
-.hof-detail p {
-  color: var(--pac-lemon);
-  font-size: 0.9rem;
-  margin-bottom: 0.3rem;
-}
-
-.hof-detail .title {
-  color: var(--ghost-light-blue);
-  font-weight: bold;
-  margin-top: 1rem;
-}
-
 /* ========== TIMELINE SECTION ========== */
 #timeline {
   background: transparent;
@@ -1280,6 +1203,22 @@ section h2 {
   position: relative; /* Untuk garis pembatas animasi */
 }
 
+.dropdown-option div {
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.dropdown-option div:first-child {
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.dropdown-option div:last-child {
+  font-size: 0.9rem;
+  color: var(--pac-lemon);
+}
+
 /* Garis pembatas neon biru di tengah (kecuali item terakhir) */
 .dropdown-option:not(:last-child)::after {
   content: '';
@@ -1417,7 +1356,7 @@ footer {
   }
 
   .foa-text p {
-    text-shadow: 0 0 20px rgba(255, 213, 0, 0.5), 0 0 40px rgba(17, 0, 255, 0.5), 0 0 60px rgba(255, 213, 0, 0.5);
+    text-shadow: 0 0 20px rgba(255, 213, 0, 0.4), 0 0 40px rgba(17, 0, 255, 0.4), 0 0 60px rgba(255, 213, 0, 0.3);
   }
 
   .benefit-container {
@@ -1453,8 +1392,16 @@ footer {
     padding: 1rem;
   }
 
-  .hof-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .dropdown-option {
+    padding: 0.8rem;
+  }
+
+  .dropdown-option div {
+    font-size: 0.85rem;
+  }
+
+  .dropdown-option div:first-child {
+    font-size: 0.9rem;
   }
 
   .timeline-steps {
@@ -1495,7 +1442,7 @@ footer {
   }
 
   .foa-text p {
-    text-shadow: 0 0 20px rgba(255, 213, 0, 0.5), 0 0 40px rgba(17, 0, 255, 0.5), 0 0 60px rgba(255, 213, 0, 0.5);
+    text-shadow: 0 0 20px rgba(255, 213, 0, 0.3), 0 0 40px rgba(17, 0, 255, 0.3), 0 0 60px rgba(255, 213, 0, 0.2);
   }
 
   .contact-grid {
@@ -1523,8 +1470,17 @@ footer {
     padding: 0.8rem;
   }
 
-  .hof-grid {
-    grid-template-columns: 1fr;
+  .dropdown-option {
+    padding: 0.7rem;
+  }
+
+  .dropdown-option div {
+    font-size: 0.8rem;
+  }
+
+  .dropdown-option div:first-child {
+    font-size: 0.85rem;
+    margin-bottom: 0.2rem;
   }
 
   .nav-btn {
