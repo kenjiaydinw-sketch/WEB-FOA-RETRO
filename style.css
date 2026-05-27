@@ -6,9 +6,7 @@
 
 :root {
   --bg-black: #000000;
-  /* Warna gradien latar belakang baru */
   --bg-gradient: radial-gradient(circle at 50% 50%, #1a1a2e 0%, #0a0a0f 50%, #000000 100%);
-  
   --text-white: #ffffff;
   --pac-gold: #ffd500;
   --pac-lemon: #f9ed00;
@@ -23,8 +21,19 @@ html {
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Courier New", monospace;
-  background: var(--bg-gradient); /* Gunakan variabel baru */
-  background-attachment: fixed;   /* Agar gradien tidak ikut scroll */
+  
+
+  /* BACKGROUND 3 LAPIS */
+
+  background-image:
+    /* Layer 3 (Paling Atas): #748B6F dengan opasitas 25% */
+    linear-gradient(rgba(26, 57, 19, 0.25), rgba(31, 48, 28, 0.307)),
+    /* Layer 2 (Tengah): #324D3E dengan opasitas 30% */
+    linear-gradient(rgba(10, 53, 30, 0.3), rgba(11, 59, 35, 0.179)),
+    /* Layer 1 (Dasar): #1E1E1E dengan opasitas 100% */
+    linear-gradient(#1E1E1E, #1E1E1E);
+    
+  background-attachment: fixed; 
   color: var(--text-white);
   line-height: 1.6;
 }
@@ -34,8 +43,19 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.95);
-  backdrop-filter: blur(10px);
+  
+  /* 1. Warna Dasar Gelap Kehijauan */
+  background-color: #0b2716;
+  
+  /* 2. Efek Grid Laser Neon Hijau (Diagonal/Diamond Cut) */
+  background-image: 
+    repeating-linear-gradient(60deg, transparent 0, transparent 40px, rgba(74, 222, 128, 0.2) 40px, rgba(19, 44, 28, 0.8) 41px, transparent 42px),
+    repeating-linear-gradient(-60deg, transparent 0, transparent 40px, rgba(74, 222, 128, 0.2) 40px, rgba(25, 74, 43, 0.8) 41px, transparent 42px);
+  
+  /* 3. Border Bawah & Efek Cahaya (Glow) Neon */
+  border-bottom: 2px solid rgba(74, 222, 128, 0.6);
+  box-shadow: 0 4px 15px rgba(74, 222, 128, 0.2);
+  
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
@@ -48,7 +68,7 @@ nav.nav-hidden {
   transform: translateY(-100%);
 }
 
-/* Pac-Man Dots (Coins) */
+/* --- Pac-Man Dots --- */
 nav::after {
   content: "";
   position: absolute;
@@ -63,7 +83,7 @@ nav::after {
   animation: moveDots 0.4s linear infinite;
 }
 
-/* Pac-Man Character */
+/* --- Pac-Man Character --- */
 nav::before {
   content: "";
   position: absolute;
@@ -121,7 +141,7 @@ nav::before {
   gap: 1rem;
 }
 
-/* ========== 1. TOMBOL HEADER (ABOUT & CONTACT) ========== */
+/* ========== TOMBOL HEADER ========== */
 .nav-btn {
   padding: 0.7rem 1.5rem;
   background-color: transparent;
@@ -130,22 +150,20 @@ nav::before {
   font-size: 1rem;
   font-weight: 600;
   outline: none;
-  transition: all 0.1s ease; /* Transisi cepat ala game jadul */
-  
-  /* EFEK PIXEL 8-BIT */
-  border-radius: 0; /* Hilangkan lengkungan */
+  transition: all 0.1s ease;
+  border-radius: 0;
   border: 3px solid var(--pac-gold);
-  box-shadow: 4px 4px 0px var(--pac-gold); /* Bayangan blok solid, bukan blur */
+  box-shadow: 4px 4px 0px var(--pac-gold);
 }
 
 .nav-btn:hover {
   background-color: var(--pac-gold);
   color: var(--bg-black);
-  transform: translate(4px, 4px); /* Efek tombol arcade ditekan */
-  box-shadow: 0px 0px 0px var(--pac-gold); /* Bayangan hilang saat ditekan */
+  transform: translate(4px, 4px);
+  box-shadow: 0px 0px 0px var(--pac-gold);
 }
 
-/* ========== TAB TIMELINE (IAC, NAC, NSAC) ========== */
+/* ========== TAB TIMELINE ========== */
 .timeline-tab-btn {
   padding: 0.8rem 1.5rem;
   background: var(--bg-black);
@@ -154,8 +172,6 @@ nav::before {
   font-size: 1rem;
   font-weight: bold;
   transition: all 0.1s ease;
-  
-  /* EFEK PIXEL 8-BIT */
   border-radius: 0;
   border: 3px solid var(--pac-gold);
   box-shadow: 4px 4px 0px rgba(255, 213, 0, 0.4);
@@ -169,11 +185,11 @@ nav::before {
 .timeline-tab-btn.active {
   background: var(--pac-gold);
   color: var(--bg-black);
-  box-shadow: 4px 4px 0px var(--ghost-blue); /* Aksen biru pacman */
+  box-shadow: 4px 4px 0px #ff8c00;
   transform: translate(0px, 0px);
 }
 
-/* ========== HERO SECTION (RETRO SPLIT-LAYOUT) ========== */
+/* ========== HERO SECTION ========== */
 .hero {
   min-height: 100vh;
   background: transparent !important;
@@ -185,15 +201,14 @@ nav::before {
   overflow: hidden;
 }
 
-/* WADAH UTAMA KIRI & KANAN */
 .hero-container {
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 1300px; /* Lebar maksimal konten */
+  max-width: 1300px;
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Membagi layar jadi 2 kolom (50:50) */
-  gap: 4rem; /* Jarak antara teks dan gambar */
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
   align-items: center;
 }
 
@@ -201,13 +216,13 @@ nav::before {
 .hero-text-side {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Rata kiri */
-  text-align: left; /* Teks rata kiri */
+  align-items: flex-start;
+  text-align: left;
 }
 
 .hero-text-side h1 {
   font-family: "Press Start 2P", cursive;
-  font-size: 2.8rem; /* Sedikit dikecilkan agar pas di setengah layar */
+  font-size: 2.8rem;
   line-height: 1.5;
   margin-bottom: 1.5rem;
   background: linear-gradient(to bottom, #fd0000 10%, #f9ed00 90%);
@@ -227,10 +242,10 @@ nav::before {
 }
 
 .hero-text-side .game-start-btn {
-  margin-top: 0; /* Menghilangkan margin atas karena sudah ada dari P */
+  margin-top: 0;
 }
 
-/* TOMBOL GAME START (Dipertahankan dari aslinya) */
+/* --- TOMBOL GAME START --- */
 .game-start-btn {
   font-family: "Press Start 2P", cursive;
   font-size: 0.6rem;
@@ -267,31 +282,29 @@ nav::before {
   100% { transform: translateX(0); opacity: 1; }
 }
 
-/* --- BAGIAN KANAN: FRAME DIAGONAL RETRO --- */
+/* --- BAGIAN KANAN: FRAME DIAGONAL --- */
 .hero-image-side {
   width: 100%;
   display: flex;
   justify-content: flex-end;
 }
 
-/* Ini yang membuat potongan miring (Diagonal Cut) */
 .retro-skew-frame {
   width: 100%;
-  height: 65vh; /* Tinggi menyesuaikan */
+  height: 65vh;
   min-height: 450px;
-  transform: skewX(-8deg); /* KUNCI DIAGONAL: Memiringkan kotak ke kiri */
-  
-  border: 6px solid var(--ghost-blue);
+  transform: skewX(-8deg);
+  border: 6px solid;
+  border-image: linear-gradient(135deg, #ff8c00 0%, #ffd700 50%, #ffd500 100%) 1;
   box-shadow: 
-    15px 15px 0px rgba(17, 0, 255, 0.3), /* Bayangan balok */
-    inset 0 0 30px rgba(59, 153, 231, 0.5); /* Sinar dari dalam */
-  border-radius: 15px; 
-  overflow: hidden; /* Potong gambar yang keluar bingkai */
+    15px 15px 0px rgba(255, 140, 0, 0.3),
+    inset 0 0 30px rgba(255, 215, 0, 0.5);
+  border-radius: 15px;
+  overflow: hidden;
   background-color: var(--bg-black);
   position: relative;
 }
 
-/* Efek Garis Monitor Jadul (Scanlines) di atas foto */
 .retro-skew-frame::after {
   content: "";
   position: absolute;
@@ -305,8 +318,7 @@ nav::before {
 .hero-slideshow {
   width: 100%;
   height: 100%;
-  /* KUNCI PENTING: Luruskan kembali fotonya agar tidak ikut miring */
-  transform: skewX(8deg) scale(1.2); 
+  transform: skewX(8deg) scale(1.2);
   position: relative;
 }
 
@@ -316,16 +328,14 @@ nav::before {
   left: 0;
   width: 100%;
   height: 100%;
-  
-  /* Karena dibingkai ketat, gunakan 'cover' agar foto penuh mengisi ruang */
-  background-size: cover; 
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   opacity: 0;
   animation: slideFade 24s infinite;
 }
 
-/* Timing Animasi Foto */
+/* --- Timing Animasi Foto --- */
 .hero-slideshow .slide:nth-child(1) { animation-delay: 0s; }
 .hero-slideshow .slide:nth-child(2) { animation-delay: 4s; }
 .hero-slideshow .slide:nth-child(3) { animation-delay: 8s; }
@@ -344,23 +354,23 @@ nav::before {
 /* --- RESPONSIVE UNTUK LAYAR KECIL --- */
 @media (max-width: 992px) {
   .hero-container {
-    grid-template-columns: 1fr; /* Tumpuk atas bawah di HP */
+    grid-template-columns: 1fr;
     text-align: center;
     gap: 3rem;
   }
   
   .hero-text-side {
-    align-items: center; /* Rata tengah di HP */
+    align-items: center;
     text-align: center;
   }
   
   .retro-skew-frame {
-    transform: skewX(0); /* Hilangkan efek miring di HP agar ruang lega */
+    transform: skewX(0);
     height: 45vh;
   }
   
   .hero-slideshow {
-    transform: skewX(0) scale(1); /* Luruskan foto di HP */
+    transform: skewX(0) scale(1);
   }
 }
 
@@ -409,7 +419,7 @@ section h2 {
   font-family: "Press Start 2P", cursive;
   font-weight: 800;
   text-transform: uppercase;
-  font-size: 1.35rem;
+  font-size: 1.2rem;
   color: var(--pac-lemon);
   margin-bottom: 1.5rem;
 }
@@ -423,14 +433,14 @@ section h2 {
   color: #ddd;
   text-align: justify;
   text-justify: inter-word;
-  text-shadow: 0 0 20px rgba(255, 213, 0, 0.3), 0 0 40px rgba(17, 0, 255, 0.5), 0 0 60px rgba(255, 213, 0, 0.3);
+  text-shadow: 0 0 20px rgba(255, 213, 0, 0.373), 0 0 40px rgba(17, 0, 255, 0.5), 0 0 60px rgba(255, 213, 0, 0.3);
 }
 
-/* ========== FOTO SLIDER (WHAT IS FOA) ========== */
+/* ========== FOTO SLIDER ========== */
 .slider-wrapper {
   position: relative;
   width: 100%;
-  max-width: 500px; /* Membatasi lebar frame agar proporsional dan elegan */
+  max-width: 500px;
   margin: 0 auto;
 }
 
@@ -468,28 +478,27 @@ section h2 {
 }
 
 .foa-image-slider {
-  display: flex; /* WAJIB: Agar gambar berjejer ke samping, bukan ke bawah */
-  overflow-x: hidden; /* Menyembunyikan scrollbar bawah, kita pakai tombol saja */
+  display: flex;
+  overflow-x: hidden;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
   width: 100%;
-  height: 300px; /* Tinggi frame TV */
+  height: 300px;
   background-color: var(--bg-black);
-  
-  /* EFEK BINGKAI PIXEL 8-BIT DI WADAHNYA (FRAME) */
-  border: 4px solid var(--ghost-blue);
+  border: 4px solid;
+  border-image: linear-gradient(135deg, #ff8c00 0%, #ffd700 50%, #ffd500 100%) 1;
   border-radius: 20px;
-  box-shadow: inset -2px -2px 0px rgba(0, 0, 0, 0.3), inset 2px 2px 0px rgba(59, 153, 231, 0.3);
+  box-shadow: inset -2px -2px 0px rgba(0, 0, 0, 0.3), inset 2px 2px 0px rgba(255, 215, 0, 0.3);
 }
 
 .foa-image-slider::-webkit-scrollbar {
-  display: none; /* Hide scrollbar in Webkit */
+  display: none;
 }
 
 .foa-image-slider img {
   width: 100%;
   height: 100%;
-  flex: 0 0 100%; /* WAJIB: Memaksa setiap gambar mengambil 100% lebar frame */
+  flex: 0 0 100%;
   object-fit: cover;
   scroll-snap-align: center;
   border-radius: 16px;
@@ -504,7 +513,6 @@ section h2 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
-  /* KUNCI: align-items flex-start MENCEGAH KOTAK MELAR BERSAMAAN */
   align-items: flex-start; 
 }
 
@@ -514,24 +522,23 @@ section h2 {
   text-align: center;
   transition: all 0.3s ease;
   position: relative;
-  
-  /* BINGKAI KOTAK TAJAM 3D */
-  border: 4px solid var(--ghost-blue);
+  border: 4px solid;
+  border-image: linear-gradient(135deg, #ffd700 0%, #fd0000 50%, #ff8c00 100%) 1;
   border-radius: 0; 
-  box-shadow: 8px 8px 0px rgba(17, 0, 255, 0.3);
+  box-shadow: 8px 8px 0px rgba(255, 140, 0, 0.3);
 }
 
 .kategori-card:hover {
   transform: translate(-4px, -4px);
   border-color: var(--pac-gold);
-  box-shadow: 12px 12px 0px rgba(255, 213, 0, 0.4);
+  box-shadow: 12px 12px 0px rgba(255, 215, 0, 0.4);
 }
 
 .kategori-card h3 {
   font-family: "Press Start 2P", cursive;
   font-size: 1.2rem;
   color: var(--pac-gold);
-  margin-bottom: 0; /* Margin 0 agar saat ditutup tidak ada jarak ekstra */
+  margin-bottom: 0;
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -543,35 +550,26 @@ section h2 {
   text-shadow: 0 0 15px var(--pac-gold);
 }
 
-/* ========================================= */
-/* WADAH TEKS ANIMASI (GRID VERSION - 100% SMOOTH) */
-/* ========================================= */
+/* --- WADAH TEKS ANIMASI --- */
 .category-desc {
   display: grid;
-  grid-template-rows: 0fr; /* Kunci utama: Mulai dari ukuran 0 */
+  grid-template-rows: 0fr;
   padding-top: 0;
   opacity: 0;
-  
-  /* Animasi super mulus tanpa menghitung tinggi palsu */
   transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1),
               padding-top 0.4s cubic-bezier(0.4, 0, 0.2, 1),
               opacity 0.3s ease-in-out;
 }
 
-/* CLASS AKTIF: Saat diklik */
 .category-desc.active {
-  grid-template-rows: 1fr; /* Kunci utama: Buka persis seukuran isi teks (1 fraction) */
+  grid-template-rows: 1fr;
   padding-top: 1.5rem;
   opacity: 1;
 }
 
-/* ========================================= */
-/* TEKS PUTIH DI DALAMNYA */
-/* ========================================= */
 .category-desc p {
-  min-height: 0; /* WAJIB ADA: Agar trik grid 0fr berfungsi tanpa bug */
-  overflow: hidden; /* WAJIB ADA: Menyembunyikan teks saat kotak menyusut */
-  
+  min-height: 0;
+  overflow: hidden;
   font-family: "Open Sans", sans-serif;
   font-weight: 700;
   color: #ccc;
@@ -635,13 +633,12 @@ section h2 {
   font-weight: 700;
 }
 
-/* ========== HALL OF FAME SECTION ========== */
 /* ========== TIMELINE SECTION ========== */
 #timeline {
   background: transparent;
 }
 
-/* Timeline Tabs */
+/* --- Timeline Tabs --- */
 .timeline-tabs {
   display: flex;
   justify-content: center;
@@ -658,7 +655,6 @@ section h2 {
   font-size: 1rem;
   font-weight: bold;
   transition: all 0.1s ease;
-  /* EFEK PIXEL 8-BIT */
   border-radius: 0;
   border: 3px solid var(--pac-gold);
   box-shadow: 4px 4px 0px rgba(255, 213, 0, 0.4);
@@ -676,7 +672,7 @@ section h2 {
   transform: translate(0px, 0px);
 }
 
-/* Timeline Container */
+/* --- Timeline Container --- */
 .timeline-container {
   position: relative;
   padding: 3rem 1rem;
@@ -704,7 +700,7 @@ section h2 {
   }
 }
 
-/* --- WADAH UTAMA & GARIS TENGAH --- */
+/* --- WADAH UTAMA --- */
 .vertical-timeline {
   position: relative;
   max-width: 900px;
@@ -712,15 +708,14 @@ section h2 {
   padding: 40px 0;
 }
 
-/* Membuat garis vertikal di tengah menggunakan ::after */
 .vertical-timeline::after {
   content: "";
   position: absolute;
   width: 4px;
   background: linear-gradient(
     to bottom,
-    rgba(17, 0, 255, 0.3),
-    rgba(59, 153, 231, 0.3)
+    rgba(255, 69, 0, 0.3),
+    rgba(255, 140, 0, 0.3)
   );
   top: 0;
   bottom: 0;
@@ -730,7 +725,6 @@ section h2 {
   z-index: 1;
 }
 
-/* --- WADAH GARIS UTAMA --- */
 .timeline-line {
   position: absolute;
   top: 0;
@@ -742,7 +736,6 @@ section h2 {
   z-index: 10;
 }
 
-/* --- GARIS PROGRES (KUNING) --- */
 .timeline-progress-line {
   position: absolute;
   top: 0;
@@ -751,11 +744,9 @@ section h2 {
   background-color: #ffd500;
   height: 0%;
   z-index: 2;
-  /* Tambahkan transisi agar pergerakan garisnya mulus */
   transition: height 12s linear;
 }
 
-/* --- BULATAN CHECKPOINT --- */
 .timeline-checkpoint {
   position: absolute;
   top: 0%;
@@ -767,11 +758,9 @@ section h2 {
   transform: translate(-50%, -50%);
   box-shadow: 0 0 10px #ffd500;
   z-index: 3;
-  /* Samakan durasi transisinya dengan garis */
   transition: top 12s linear;
 }
 
-/* --- PEMBAGIAN SISI KIRI & KANAN --- */
 .timeline-item {
   padding: 10px 40px;
   position: relative;
@@ -780,52 +769,44 @@ section h2 {
   margin-bottom: 3rem;
 }
 
-/* Item ganjil (1, 3, 5) ditaruh di KIRI */
 .timeline-item:nth-child(odd) {
   left: 0;
   text-align: right;
 }
 
-/* Item genap (2, 4, 6) ditaruh di KANAN */
 .timeline-item:nth-child(even) {
   left: 50%;
   text-align: left;
 }
 
-/* --- KOTAK TEKS (SPEECH BUBBLE) --- */
+/* --- KOTAK TEKS --- */
 .timeline-box {
   padding: 20px;
-  background: var(--bg-black); /* Latar hitam agar retro */
+  background: var(--bg-black);
   position: relative;
   transition: all 0.2s ease;
-  
-  /* EFEK PIXEL 8-BIT */
   border-radius: 0;
-  border: 3px solid var(--pac-gold); /* Garis tegas */
-  box-shadow: 6px 6px 0px rgba(255, 213, 0, 0.3); /* Bayangan balok */
+  border: 3px solid var(--pac-gold);
+  box-shadow: 6px 6px 0px rgba(255, 213, 0, 0.3);
 }
 
 .timeline-box:hover {
   background: rgba(255, 213, 0, 0.1);
   border-color: var(--pac-gold);
-  box-shadow: 6px 6px 0px var(--pac-gold); /* Balok menyala saat disentuh */
+  box-shadow: 6px 6px 0px var(--pac-gold);
   transform: translate(-3px, -3px);
 }
 
-/* Mengubah warna tanda panahnya agar sejajar dengan ketegasan border */
-/* Panah KIRI */
 .timeline-item:nth-child(odd) .timeline-box::after {
   left: 100%;
   border-left-color: var(--pac-gold);
 }
 
-/* Panah KANAN */
 .timeline-item:nth-child(even) .timeline-box::after {
   right: 100%;
   border-right-color: var(--pac-gold);
 }
 
-/* Jangan lupa ubah juga panah KIRI di Media Query (Mobile) */
 @media screen and (max-width: 768px) {
   .timeline-item:nth-child(odd) .timeline-box::after,
   .timeline-item:nth-child(even) .timeline-box::after {
@@ -837,7 +818,7 @@ section h2 {
 .timeline-box:hover {
   background: linear-gradient(
     135deg,
-    rgba(59, 153, 231, 0.15),
+    rgba(255, 69, 0, 0.15),
     rgba(255, 213, 0, 0.1)
   );
   border-color: var(--pac-gold);
@@ -858,7 +839,6 @@ section h2 {
   font-size: 0.95rem;
 }
 
-/* --- PANAH KOTAK (POINTER) --- */
 .timeline-box::after {
   content: "";
   position: absolute;
@@ -867,20 +847,17 @@ section h2 {
   border-width: 10px;
 }
 
-/* Panah untuk kotak KIRI (menunjuk ke kanan) */
 .timeline-item:nth-child(odd) .timeline-box::after {
   left: 100%;
   border-left-color: rgba(255, 213, 0, 0.3);
 }
 
-/* Panah untuk kotak KANAN (menunjuk ke kiri) */
 .timeline-item:nth-child(even) .timeline-box::after {
   right: 100%;
   border-right-color: rgba(255, 213, 0, 0.3);
 }
 
-/* --- POSISI IKON DI TENGAH GARIS --- */
-/* --- EFEK GLOW PADA IKON (Saat Disentuh) --- */
+/* --- IKON TIMELINE --- */
 .timeline-icon {
   position: absolute;
   top: 15px;
@@ -907,7 +884,6 @@ section h2 {
   transform: scale(1.1);
 }
 
-/* Styling untuk gambar di dalam icon */
 .timeline-icon img {
   width: 100%;
   height: 100%;
@@ -921,42 +897,24 @@ section h2 {
   transform: scale(1.1);
 }
 
-/* Icon colors */
-.timeline-item:nth-child(1) .timeline-icon {
-  background: var(--ghost-red);
-}
-.timeline-item:nth-child(2) .timeline-icon {
-  background: var(--ghost-blue);
-}
-.timeline-item:nth-child(3) .timeline-icon {
-  background: #ff6b9d;
-}
-.timeline-item:nth-child(4) .timeline-icon {
-  background: #c44569;
-}
-.timeline-item:nth-child(5) .timeline-icon {
-  background: #00d4ff;
-}
-.timeline-item:nth-child(6) .timeline-icon {
-  background: var(--ghost-red);
-}
-.timeline-item:nth-child(7) .timeline-icon {
-  background: #ff6b9d;
-}
+.timeline-item:nth-child(1) .timeline-icon { background: var(--ghost-red); }
+.timeline-item:nth-child(2) .timeline-icon { background: var(--ghost-blue); }
+.timeline-item:nth-child(3) .timeline-icon { background: #ff6b9d; }
+.timeline-item:nth-child(4) .timeline-icon { background: #c44569; }
+.timeline-item:nth-child(5) .timeline-icon { background: #00d4ff; }
+.timeline-item:nth-child(6) .timeline-icon { background: var(--ghost-red); }
+.timeline-item:nth-child(7) .timeline-icon { background: #ff6b9d; }
 
-/* Dorong ikon ke tengah garis untuk kotak KIRI */
 .timeline-item:nth-child(odd) .timeline-icon {
   right: -20px;
 }
 
-/* Dorong ikon ke tengah garis untuk kotak KANAN */
 .timeline-item:nth-child(even) .timeline-icon {
   left: -20px;
 }
 
-/* --- KHUSUS LAYAR HP (MOBILE) --- */
+/* --- RESPONSIVE TIMELINE --- */
 @media screen and (max-width: 768px) {
-  /* Geser garis ke kiri */
   .vertical-timeline::after {
     left: 31px;
   }
@@ -965,7 +923,6 @@ section h2 {
     left: 31px;
   }
 
-  /* Buat semua item mengambil lebar penuh */
   .timeline-item {
     width: 100%;
     padding-left: 70px;
@@ -973,12 +930,10 @@ section h2 {
     left: 0 !important;
   }
 
-  /* Posisikan semua item di sisi kiri */
   .timeline-item:nth-child(even) {
     left: 0%;
   }
 
-  /* Atur panah speech bubble agar semua menunjuk ke kiri */
   .timeline-item:nth-child(odd) .timeline-box::after,
   .timeline-item:nth-child(even) .timeline-box::after {
     left: -20px;
@@ -988,7 +943,6 @@ section h2 {
     border-left-color: transparent;
   }
 
-  /* Posisikan semua ikon di garis sebelah kiri */
   .timeline-item:nth-child(odd) .timeline-icon,
   .timeline-item:nth-child(even) .timeline-icon {
     left: 11px;
@@ -1013,12 +967,12 @@ section h2 {
   }
 
   .timeline-item {
-   padding: 10px 1rem 10px 70px !important; 
+    padding: 10px 1rem 10px 70px !important; 
     margin-bottom: 1.5rem;
   }
 
   .timeline-icon {
-   width: 40px !important;
+    width: 40px !important;
     height: 40px !important;
     font-size: 1.1rem !important;
     top: 15px !important;
@@ -1049,7 +1003,6 @@ section h2 {
 }
 
 /* ========== CONTACT SECTION ========== */
-
 #contact {
   background-color: #0a0a0a;
 }
@@ -1065,30 +1018,23 @@ section h2 {
   text-align: center;
 }
 
-/* CIRCLE ICON */
-
+/* --- CIRCLE ICON --- */
 .contact-circle {
   width: 70px;
   height: 70px;
-
   margin: 0 auto 1rem auto;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   border-radius: 0;
   clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
-
   background: linear-gradient(
     135deg,
     rgba(255, 213, 0, 0.8),
     rgba(255, 200, 0, 0.7)
   );
   box-shadow: inset -2px -2px 0px rgba(0, 0, 0, 0.3), inset 2px 2px 0px rgba(255, 255, 255, 0.4), 4px 4px 0px rgba(0, 0, 0, 0.5);
-
   border: 3px solid #000000;
-
   transition: all 0.3s ease;
 }
 
@@ -1097,7 +1043,6 @@ section h2 {
   width: 32px;
   height: 32px;
   fill: var(--pac-gold);
-
   transition: all 0.3s ease;
 }
 
@@ -1115,8 +1060,6 @@ section h2 {
   filter: brightness(0);
 }
 
-/* TITLE */
-
 .contact-item h3 {
   color: var(--pac-lemon);
   margin-bottom: 1rem;
@@ -1125,25 +1068,18 @@ section h2 {
   letter-spacing: 1px;
 }
 
-/* INFO BOX */
-
+/* --- INFO BOX --- */
 .contact-box {
   background: rgba(255, 255, 255, 0.03);
-
   border: 1px solid rgba(255, 213, 0, 0.2);
-
   border-radius: 14px;
-
   padding: 1.5rem;
-
   transition: all 0.3s ease;
 }
 
 .contact-box:hover {
   border-color: var(--pac-gold);
-
   box-shadow: 0 0 20px rgba(255, 213, 0, 0.15);
-
   transform: translateY(-4px);
 }
 
@@ -1158,9 +1094,7 @@ section h2 {
   font-weight: 600;
 }
 
-/* ========== CONTACT DROPDOWN (PERBAIKAN) ========== */
-
-/* Tombol tetap seperti biasa, hilangkan margin negatif yang aneh */
+/* ========== CONTACT DROPDOWN ========== */
 .contact-dropdown-btn {
   padding: 0;
   cursor: pointer;
@@ -1168,49 +1102,41 @@ section h2 {
   background: linear-gradient(135deg, rgba(255, 213, 0, 0.8), rgba(255, 200, 0, 0.7));
 }
 
-/* Wadah untuk menahan kotak asli dan dropdown */
 .contact-info-wrapper {
-  position: relative; /* KUNCI UTAMA: Menjadi jangkar untuk menu absolute */
+  position: relative;
   width: 100%;
 }
 
-/* Kotak Teks Asli */
 .contact-item .contact-box {
   width: 100%;
   transition: opacity 0.2s ease;
 }
 
-/* Sembunyikan isi kotak asli (Hanya transparan, ukurannya tetap ada agar layar tidak loncat) */
 .contact-item.dropdown-active #contactTextOriginal {
   opacity: 0;
   pointer-events: none;
 }
 
-/* Menu Dropdown Mengambang (Absolute) */
 .contact-dropdown-menu {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%; /* Memaksa tinggi menu sama persis dengan kotak asli */
-  
+  height: 100%;
   background: var(--bg-black);
   border: 3px solid var(--pac-gold);
   border-radius: 14px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 213, 0, 0.3);
   z-index: 10;
-  
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Teks menu di tengah secara vertikal */
-  
+  justify-content: center;
   opacity: 0;
   visibility: hidden;
   transform: translateY(-10px);
   transition: all 0.3s ease;
 }
 
-/* Tampilkan menu dengan efek turun mulus */
 .contact-item.dropdown-active .contact-dropdown-menu {
   opacity: 1;
   visibility: visible;
@@ -1227,7 +1153,7 @@ section h2 {
   text-align: center;
   font-size: 1rem;
   transition: all 0.2s ease;
-  position: relative; /* Untuk garis pembatas animasi */
+  position: relative;
 }
 
 .dropdown-option div {
@@ -1246,7 +1172,6 @@ section h2 {
   color: var(--pac-lemon);
 }
 
-/* Garis pembatas neon biru di tengah (kecuali item terakhir) */
 .dropdown-option:not(:last-child)::after {
   content: '';
   position: absolute;
@@ -1254,8 +1179,8 @@ section h2 {
   left: 10%;
   width: 80%;
   height: 2px;
-  background-color: var(--ghost-blue);
-  box-shadow: 0 0 5px var(--ghost-blue);
+  background-color: #ff6347;
+  box-shadow: 0 0 5px #ff6347;
 }
 
 .dropdown-option:hover {
@@ -1345,20 +1270,15 @@ footer {
     gap: 2rem;
   }
 
-  /* ===================================== */
-  /* TRIK MENUKAR URUTAN (FOTO JADI DI ATAS) */
-  /* ===================================== */
   .hero-image-side {
-    order: 1; /* Tampil urutan pertama (di atas) */
+    order: 1;
   }
 
   .hero-text-side {
-    order: 2; /* Tampil urutan kedua (di bawah foto) */
+    order: 2;
     align-items: center;
     text-align: center;
   }
-  
-  /* ===================================== */
 
   .hero-text-side h1 {
     font-size: 2rem;
@@ -1395,7 +1315,7 @@ footer {
   }
 
   section h2 {
-    font-size: 2rem;
+    font-size: 1.7rem;
   }
 
   #foa h2 {
@@ -1424,6 +1344,14 @@ footer {
 
   .kategori-grid {
     grid-template-columns: 1fr;
+  }
+
+  .kategori-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .kategori-card h3 {
+    font-size: 1.1rem;
   }
 
   .contact-grid {
@@ -1524,6 +1452,18 @@ footer {
 
   .category-desc p {
     text-shadow: 0 0 20px rgba(255, 213, 0, 0.3), 0 0 40px rgba(17, 0, 255, 0.3), 0 0 60px rgba(255, 213, 0, 0.2);
+  }
+
+  .kategori-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .kategori-card h3 {
+    font-size: 0.95rem;
+  }
+
+  .kategori-grid {
+    gap: 1rem;
   }
 
   .contact-grid {
