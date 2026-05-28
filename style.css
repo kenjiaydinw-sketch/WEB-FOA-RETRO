@@ -23,15 +23,12 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Courier New", monospace;
   
 
-  /* BACKGROUND 3 LAPIS */
 
   background-image:
-    /* Layer 3 (Paling Atas): #748B6F dengan opasitas 25% */
-    linear-gradient(rgba(26, 57, 19, 0.25), rgba(31, 48, 28, 0.307)),
-    /* Layer 2 (Tengah): #324D3E dengan opasitas 30% */
-    linear-gradient(rgba(10, 53, 30, 0.3), rgba(11, 59, 35, 0.179)),
-    /* Layer 1 (Dasar): #1E1E1E dengan opasitas 100% */
-    linear-gradient(#1E1E1E, #1E1E1E);
+    /* Layer 2 (Atas): Linear Gradient dengan Emas, Merah, dan Oranye (45 derajat) */
+    linear-gradient(135deg, #0e5398ac 0%, #0ea54d4b 50%, #ffa6004a 100%),
+    /* Layer 1 (Dasar/UTAMA): Hitam #000000 */
+    linear-gradient(#000000, #000000);
     
   background-attachment: fixed; 
   color: var(--text-white);
@@ -787,7 +784,10 @@ section h2 {
   transition: all 0.2s ease;
   border-radius: 0;
   border: 3px solid var(--pac-gold);
-  box-shadow: 6px 6px 0px rgba(255, 213, 0, 0.3);
+  outline: 2px solid var(--pac-gold);
+  outline-offset: -8px;
+  box-shadow: 6px 6px 0px rgba(255, 213, 0, 0.3), inset 0 0 0 1px rgba(255, 213, 0, 0.5);
+  text-align: center;
 }
 
 .timeline-box:hover {
@@ -837,6 +837,7 @@ section h2 {
   color: #aaa;
   margin: 0;
   font-size: 0.95rem;
+  text-align: justify;
 }
 
 .timeline-box::after {
