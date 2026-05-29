@@ -345,6 +345,8 @@ nav::before {
   background-repeat: no-repeat;
   opacity: 0;
   animation: slideFade 24s infinite;
+  transform: translateZ(0); 
+  backface-visibility: hidden;
 }
 
 /* --- Timing Animasi Foto --- */
@@ -1411,33 +1413,30 @@ footer {
   .timeline-steps {
     grid-template-columns: 1fr;
   }
+
+  /* 1. MATIKAN BLUR PADA NAVBAR */
+  nav {
+    backdrop-filter: none; /* Blur kaca sangat berat di iPhone/Android saat scroll */
+    background-color: rgba(11, 39, 22, 0.98); /* Ganti dengan warna solid yang hampir tidak tembus pandang */
+  }
+
+  /* 2. RINGANKAN ANIMASI KOTAK LOMBA */
+  .category-desc p {
+    /* Ganti 3 lapis bayangan menjadi 1 lapis tipis saja agar animasi buka-tutup kotak ringan */
+    text-shadow: 0 0 10px rgba(17, 0, 255, 0.5); 
+  }
 }
-/* ========== SCROLL REVEAL ANIMATIONS ========== */
-.reveal {
+/* ========== SCROLL REVEAL ANIMATIONS (SUPER LIGHTWEIGHT) ========== */
+.reveal, .reveal-staggered {
   opacity: 0;
-  transform: translateY(40px) scale(0.95);
-  /* Gunakan kurva bezier agar lebih natural seperti Apple/Web Profesional */
-  transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), 
-              transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-  /* Bantuan GPU Anti-Lag */
-  will-change: opacity, transform; 
+  /* Jarak translate diperkecil dari 40px ke 20px agar HP tidak berat menghitung */
+  transform: translateY(20px); 
+  /* Gunakan ease-out biasa, lebih ramah RAM HP daripada cubic-bezier */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  /* KUNCI: Hapus 'will-change' di sini agar memori HP tidak penuh */
 }
 
-.reveal.revealed {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
-.reveal-staggered {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1), 
-              transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-  /* Bantuan GPU Anti-Lag */
-  will-change: opacity, transform; 
-}
-
-.reveal-staggered.revealed {
+.reveal.revealed, .reveal-staggered.revealed {
   opacity: 1;
   transform: translateY(0);
 }
