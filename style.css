@@ -5,7 +5,9 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
+
 
 :root {
   --bg-black: #000000;
@@ -26,6 +28,12 @@ html {
    ========================================================================== */
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Courier New", monospace;
+  background-color: #030712;
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(0, 102, 255, 0.25) 0%, transparent 60%),
+    radial-gradient(circle at 50% 110%, rgba(0, 163, 255, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 0% 0%, rgba(0, 102, 255, 0.1) 0%, transparent 40%);
+  background-attachment: fixed;
   color: var(--text-white);
   line-height: 1.6;
 }
@@ -38,9 +46,7 @@ body::before {
   width: 100vw;
   height: 100vh;
   z-index: -10;
-  background-image:
-    linear-gradient(135deg, #0e5398ac 0%, #0ea54d4b 50%, #ffa6004a 100%),
-    linear-gradient(#000000, #000000);
+  background: transparent;
   transform: translateZ(0);
   will-change: transform;
 }
@@ -52,12 +58,7 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: #0b2716;
-  background-image: 
-    repeating-linear-gradient(60deg, transparent 0, transparent 40px, rgba(74, 222, 128, 0.2) 40px, rgba(19, 44, 28, 0.8) 41px, transparent 42px),
-    repeating-linear-gradient(-60deg, transparent 0, transparent 40px, rgba(74, 222, 128, 0.2) 40px, rgba(25, 74, 43, 0.8) 41px, transparent 42px);
-  border-bottom: 2px solid rgba(74, 222, 128, 0.6);
-  box-shadow: 0 4px 15px rgba(74, 222, 128, 0.2);
+  background-color: #000000;
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
@@ -75,29 +76,13 @@ nav::after {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: calc(100% - 3rem);
-  height: 6px;
-  background-image: radial-gradient(var(--pac-gold) 45%, transparent 45%);
-  background-size: 20px 6px;
-  background-position: 0 0;
-  background-repeat: repeat-x;
-  animation: moveDots 0.4s linear infinite;
+  width: 100%;
+  height: 2px;
+  background-color: #ffc105;
 }
 
 nav::before {
-  content: "";
-  position: absolute;
-  bottom: -7px;
-  right: 1.5rem;
-  width: 0;
-  height: 0;
-  border-right: 10px solid var(--pac-lemon);
-  border-top: 10px solid var(--pac-lemon);
-  border-left: 10px solid transparent;
-  border-bottom: 10px solid var(--pac-lemon);
-  border-radius: 50%;
-  z-index: 1001;
-  animation: chomp 0.4s infinite;
+  display: none;
 }
 
 @keyframes chomp {
@@ -158,7 +143,7 @@ nav::before {
    ========================================================================== */
 .hero {
   min-height: 100vh;
-  background: transparent !important;
+  background: linear-gradient(135deg, #03356a 0%, #023153 100%) !important;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -244,12 +229,12 @@ nav::before {
   height: 65vh;
   min-height: 450px;
   transform: skewX(-8deg);
-  border: 6px solid var(--pac-gold);
+  border: 6px #000000 solid;
   border-radius: 40px;
   overflow: hidden;
   background-color: var(--bg-black);
   position: relative;
-  box-shadow: 15px 15px 0px rgba(255, 140, 0, 0.3), inset 0 0 30px rgba(255, 215, 0, 0.5);
+  box-shadow: 15px 15px 0px rgba(0, 0, 0, 0.3), inset 0 0 30px rgba(48, 42, 7, 0.5);
 }
 
 .retro-skew-frame::after {
@@ -323,6 +308,12 @@ section h2 {
 
 #foa, #kategori, #benefit, #timeline, #contact {
   background: transparent !important;
+}
+
+
+
+#kategori {
+  background: linear-gradient(135deg, #154079 0%, #02060E 100%) !important;
 }
 
 /* --- FOA Section --- */
@@ -455,7 +446,9 @@ section h2 {
   cursor: pointer;
   transition: all 0.2s ease;
   user-select: none;
+  outline: none; 
 }
+
 
 .kategori-card h3:hover {
   color: var(--text-white);
@@ -932,4 +925,8 @@ footer {
   .timeline-box p { text-align: center; font-size: 0.85rem; }
   .timeline-item:nth-child(odd) .timeline-box::after, .timeline-item:nth-child(even) .timeline-box::after { top: 15px; }
   .timeline-tab-btn { padding: 0.5rem 0.8rem; font-size: 0.8rem; }
+
+  :focus {
+    outline: none;
+}
 }
