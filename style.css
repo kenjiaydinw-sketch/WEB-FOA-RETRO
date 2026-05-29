@@ -21,18 +21,33 @@ html {
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Courier New", monospace;
-  
-
-
-  background-image:
-    /* Layer 2 (Atas): Linear Gradient dengan Emas, Merah, dan Oranye (45 derajat) */
-    linear-gradient(135deg, #0e5398ac 0%, #0ea54d4b 50%, #ffa6004a 100%),
-    /* Layer 1 (Dasar/UTAMA): Hitam #000000 */
-    linear-gradient(#000000, #000000);
-    
-  background-attachment: fixed; 
   color: var(--text-white);
   line-height: 1.6;
+  /* HAPUS background dari sini */
+}
+
+/* ========================================= */
+/* RAHASIA ANTI-LAG: Background di GPU Layer */
+/* ========================================= */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -10; /* Tetap di paling belakang */
+  
+  /* Background warna warni Anda */
+  background-image:
+    /* Layer 2 (Atas) */
+    linear-gradient(135deg, #0e5398ac 0%, #0ea54d4b 50%, #ffa6004a 100%),
+    /* Layer 1 (Dasar) */
+    linear-gradient(#000000, #000000);
+  
+  /* Hardware Acceleration: Memaksa HP menggunakan GPU */
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 /* ========== NAVBAR ========== */
@@ -547,26 +562,27 @@ section h2 {
   text-shadow: 0 0 15px var(--pac-gold);
 }
 
-/* --- WADAH TEKS ANIMASI --- */
+/* --- WADAH TEKS ANIMASI (SUPER SMOOTH) --- */
 .category-desc {
   display: grid;
   grid-template-rows: 0fr;
-  padding-top: 0;
   opacity: 0;
-  transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-              padding-top 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-              opacity 0.3s ease-in-out;
+  /* Hanya transisi grid dan opacity, tanpa delay padding */
+  transition: grid-template-rows 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+              opacity 0.4s ease-out;
 }
 
 .category-desc.active {
   grid-template-rows: 1fr;
-  padding-top: 1.5rem;
   opacity: 1;
 }
 
 .category-desc p {
   min-height: 0;
   overflow: hidden;
+  /* Padding dipindah ke sini agar tidak bentrok dengan animasi Grid */
+  padding-top: 1.5rem; 
+  
   font-family: "Open Sans", sans-serif;
   font-weight: 700;
   color: #ccc;
@@ -1396,14 +1412,15 @@ footer {
     grid-template-columns: 1fr;
   }
 }
-
 /* ========== SCROLL REVEAL ANIMATIONS ========== */
 .reveal {
   opacity: 0;
   transform: translateY(40px) scale(0.95);
-  transition:
-    opacity 0.8s ease,
-    transform 0.8s ease;
+  /* Gunakan kurva bezier agar lebih natural seperti Apple/Web Profesional */
+  transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), 
+              transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  /* Bantuan GPU Anti-Lag */
+  will-change: opacity, transform; 
 }
 
 .reveal.revealed {
@@ -1414,9 +1431,10 @@ footer {
 .reveal-staggered {
   opacity: 0;
   transform: translateY(30px);
-  transition:
-    opacity 0.6s ease,
-    transform 0.6s ease;
+  transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1), 
+              transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  /* Bantuan GPU Anti-Lag */
+  will-change: opacity, transform; 
 }
 
 .reveal-staggered.revealed {
